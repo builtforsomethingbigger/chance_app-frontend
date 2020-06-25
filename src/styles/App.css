@@ -1,0 +1,44 @@
+body{
+  background-color:rgb(168, 203, 158);
+}
+#wrapper{
+  position: relative;
+  text-align: center;
+  padding-bottom: 100px;
+}
+.App {
+  position: relative;
+  top:20px;
+  display: inline-block;
+  width: 80%;
+  min-width: 600px;
+  height: 1180px;
+  overflow: hidden;
+  border-radius: 25px;
+  background-color: rgba(232, 232, 232, 0.851) ;
+  background: linear-gradient(
+    to bottom, 
+    rgba(255, 255, 255, 0.885) 0%,
+    #ffffff6d 30%,
+    rgba(111, 148, 111, 0.42) 100%
+  ); 
+}
+
+
+
+/*GENERAL STYLES*/
+.middle{
+  position: relative;
+  display: inline-block;
+}
+.padLeft40{
+  padding-left: 40px;
+}
+img{
+  border:0;
+}
+
+
+
+
+

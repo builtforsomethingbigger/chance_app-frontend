@@ -1,0 +1,46 @@
+#charityCard{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: fit-content;
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0.337) 0%,
+        rgba(255, 255, 255, 0.193) 100%
+    ); 
+    cursor: pointer;
+}
+#charityCard:hover{
+    width: 90.5%;
+    transform: scale(1.1);
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0.577) 0%,
+        rgba(255, 255, 255, 0.139) 100%
+    ); 
+}
+#charityCard:active{
+    background: linear-gradient(
+        to bottom, 
+        rgba(255, 255, 255, 0.337) 0%,
+        rgba(255, 255, 255, 0.193) 100%
+    ); 
+}
+
+@media only screen and (max-width: 605px){
+    #charityCard{
+        font-size: 30px;
+        padding: 10px 0px 10px 0px;
+    }
+    #charityCard:hover{
+        width: 100%;
+        transform: scale(1.0);
+    }
+    #charityCard:active{
+        color: rgba(167, 40, 40, 0.817);
+    }
+}

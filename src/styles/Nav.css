@@ -1,0 +1,135 @@
+#Nav{
+    margin: 0 auto;
+    position: relative;
+    left: 64px;
+}
+#ChanceLogo{
+    position: relative;
+    display: inline-block;
+    width: 320px;
+    height: 95px;
+    top: 30px;
+    left: -65px;
+    background-image: url('../images/Chance_Logo.png');
+    background-size: cover;
+}
+#ChanceLogo:hover{
+    animation-name: hearbeat;
+    animation-duration: .8s;
+    animation-iteration-count: 1;
+}
+
+@keyframes hearbeat {
+    5%  {
+        transform: scale(1);
+        text-shadow: none; 
+    }
+    30% {
+        transform: scale(1.05);
+        text-shadow: 8 8 rgba(0, 0, 0, 0.214);
+    }
+    45%  {
+        transform: scale(1);
+        text-shadow: none; 
+    }
+    60% {
+        transform: scale(1.04);
+        text-shadow: 8 8 rgba(0, 0, 0, 0.214);
+        }
+}
+
+#mainMenu{
+    position: absolute;
+    display: inline-block;
+    width: 280px;
+    height: 275px;
+    top: 0px;
+    left: -205px;
+    padding-top: 10px;
+    background-color: white;
+    border: 1px solid rgb(89, 165, 77);
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 1px #b8b8b885;
+    z-index: 100;
+    cursor: pointer;
+}
+.menuBtn{
+    position: relative;
+    display: inline-block;
+    top: 25px;
+    left:-65px;
+    font-family: arial;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    color: rgba(201, 6, 6, 0.646);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.146);
+    cursor: pointer;
+}
+.menuBtn:hover{
+    text-shadow: none;
+    transform: scale(1.1);
+}
+.menuBtn:active{
+    color: rgb(140, 4, 4);
+    transform: scale(1.1);
+}
+.dropdownAnimation{
+    animation-name: dropdown;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition-timing-function: ease-in;
+    transition: 0.2s;
+}
+
+    @keyframes dropdown {
+    0% {
+        opacity:0; 
+        height: 1px; 
+        background-color: rgba(255, 255, 255, 0);}
+    18%  {
+        opacity:.8; 
+        height: 290px; 
+        background-color: #ffffff;}
+    }
+
+.menuFont{
+    font-size:20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    line-height: 36px;
+    text-align: left;
+    vertical-align: bottom;
+}
+.menuFont:hover{
+    transform: scale(1.12);
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 2%,
+        rgba(168, 203, 158, 0.600) 28%,
+        rgba(168, 203, 158, 0.600) 82%,
+        rgba(255, 255, 255, 0.0) 98%
+    ); 
+}
+.menuFont:active{
+    animation-name: menuClick;
+    animation-duration: .2s;
+    animation-iteration-count: 1;
+}
+
+    @keyframes menuClick {
+        0% {color:rgb(40, 40, 40);}
+        100% {color:rgb(255, 255, 255);}
+    }
+.mainMenuIcon{
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.639);
+}
+
+  
+
+@media only screen and (max-width: 605px){
+    .menuBtn{
+        font-size: 30px;
+    }
+}

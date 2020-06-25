@@ -1,0 +1,28 @@
+#searchResults{
+    position: relative;
+    display: inline-block;
+    top: 80px;
+    width: 90%;
+    height: 81.5%;
+    border: 1px solid rgba(27, 91, 27, 0.433);
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px #0000007b;
+    background: linear-gradient(
+        to bottom, 
+        rgba(168, 203, 158, 0.413) 0%,
+        rgba(58, 111, 58, 0.646) 100%
+    ); 
+    overflow: scroll;
+}
+#searchResults:hover{
+    box-shadow: inset 0 0 5px #0000007b;
+}
+#searchResults:active{
+    box-shadow: inset 0 0 10px #0000007b;
+}
+
+@media only screen and (max-width: 605px){
+    #searchResults{
+        height: 82.75%;
+    }
+}
