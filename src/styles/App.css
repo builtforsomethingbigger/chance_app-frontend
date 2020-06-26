@@ -1,5 +1,6 @@
 body{
-  background-color:rgb(168, 203, 158);
+  /* background-color:rgb(168, 203, 158); */
+  background-color:rgb(61, 61, 61);
 }
 #wrapper{
   position: relative;
@@ -20,7 +21,7 @@ body{
     to bottom, 
     rgba(255, 255, 255, 0.885) 0%,
     #ffffff6d 30%,
-    rgba(111, 148, 111, 0.42) 100%
+    rgba(0, 0, 0, 0.42) 100%
   ); 
 }
 

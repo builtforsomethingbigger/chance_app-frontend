@@ -1,42 +1,31 @@
 import React from 'react';
 import './styles/App.css';
-import CharityData from './components/data/db.json'
 import { HomePage, Nav } from './components';
 
+const API = 'http://localhost:3000/charities'
 
 export default class App extends React.Component{
 
   state = {
-    charities: CharityData.splice(0-250),
+    charities: [],
     index: 100
   }
 
-  // componentDidMount(){
-  //   this.fetchAllCharities()
-  // }
+  componentDidMount(){
+    this.fetchAllCharities()
+  }
 
-  // fetchAllCharities = () => {
-  //   fetch(CharityData)
-  //   .then(res=>res.json())
-  //   .then(charities => {
-  //     const allCharities = charities
-  //     this.setState({
-  //       charities: allCharities
-  //     })
-  //   } ) 
-    
-  // }
+  fetchAllCharities = () => {
+    fetch(API)
+    .then(res=>res.json())
+    .then(charities => this.setState({ charities })
+    ) 
+  }
 
 
-addCharityId = (array) => {
-  for (i = 0; i < array.length; i++) { 
-    array[i]["id"] = i;
-  }   
-}
 
 
   render(){
-    console.log(this.state.charities)
     return (
       <div className="App">
         <Nav  />
@@ -49,7 +38,7 @@ addCharityId = (array) => {
           <Route path='/users' render={() => <UsersPage authors={this.state.authors} Charities={this.state.Charities} />} /> 
           <Route path="/" render={(routerProps) => <HomePage {...routerProps} displayRecentCharities={this.displayRecentCharities()} displaySearchedCharities={this.displaySearchedCharities()} />} />
         </Switch> */}
-        <HomePage charities={this.addCharityId(CharityData)} />
+        <HomePage charities={this.state.charities} />
       </div>
     );
   }

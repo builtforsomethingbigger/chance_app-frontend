@@ -9,8 +9,8 @@
     box-shadow: inset 0 0 10px #0000007b;
     background: linear-gradient(
         to bottom, 
-        rgba(168, 203, 158, 0.413) 0%,
-        rgba(58, 111, 58, 0.646) 100%
+        rgba(226, 226, 226, 0.413) 0%,
+        rgba(64, 64, 64, 0.868) 100%
     ); 
     overflow: scroll;
 }

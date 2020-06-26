@@ -1,6 +1,8 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
+import CharityCard from './CharityCard';
+import UserProfile from './UserProfile';
 import '../styles/HomePage.css';
 
 export default class HomePage extends React.Component{
@@ -17,20 +19,19 @@ export default class HomePage extends React.Component{
     }
 
     displaySearchedCharities = e => {
-        const allCharities = [...this.props.charities]
         const input = this.state.searchInput
-        return allCharities.filter(charity => charity.charityName.toLowerCase().includes(input.toLowerCase())
-          || charity.tagLine.toLowerCase().includes(input.toLowerCase())
-          || charity.cause.causeName.toLowerCase().includes(input.toLowerCase())
+        return this.props.charities.filter(charity => charity.charity_name.toLowerCase().includes(input.toLowerCase())
+          || (charity.tag_line && charity.tag_line.toLowerCase().includes(input.toLowerCase()))
+          || charity.cause.toLowerCase().includes(input.toLowerCase())
     )}    
 
     render(){
-        console.log(this.props.charities[0])
-
         return(
             <div id="homepage_wrapper">
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults charities={this.displaySearchedCharities()} />
+                <CharityCard />
+                <UserProfile />
             </div>
         )
     }
