@@ -11,7 +11,7 @@
     background: linear-gradient(
         to bottom, 
         rgb(241, 241, 241) 0%,
-        rgb(139, 139, 139) 100%
+        rgb(221, 221, 221) 100%
     ); 
     overflow: scroll;
     z-index: 1;
@@ -39,4 +39,123 @@
         100%  {
             opacity:1;
         }
-    }
+}
+.charityInfoTable{
+    position: absolute;
+    display: inline-block;
+    width: 95%;
+    height: 580px;
+    overflow: scroll;
+    top: 40px;
+    left: 2vw;
+}
+.ratingLikeTable{
+    position: absolute;
+    display: inline-block;
+    width: 84%;
+    top: 670px;
+    left: 6vw;
+}
+.followHeart{
+    width: 45px;
+    opacity: .8;
+    cursor: pointer;
+}
+.followHeart:hover{
+    opacity: 1;
+    transform: scale(1.05);
+}
+.orgLabel{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.247);
+    color: green;
+}
+.chairtyInfoFont{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+.orgNameFont{
+    font-size: 24px;
+    line-height: 30px;
+    padding: 20px 10px 15px 10px;
+}
+.charityMoreInfoBtn{
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
+    color: white;
+    top: 640px;
+    margin-left: -140px;
+    width: 120px;
+    padding: 3px;
+    border: 1px solid rgb(82, 168, 82);
+    border-radius: 8px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(196, 243, 185, 0.747) 2%,
+        rgba(49, 163, 47, 0.377) 28%,
+        rgba(28, 136, 26, 0.957) 52%,
+        rgba(42, 148, 35, 0.683) 100%
+    ); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
+}
+.charityMoreInfoBtn:hover{
+    box-shadow: none;
+    transform: scale(.99);
+    cursor: pointer;
+}
+.charityMoreInfoBtn:active{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(196, 243, 185, 0.747) 2%,
+        rgba(49, 163, 47, 0.827) 28%,
+        rgba(28, 136, 26, 0.957) 52%,
+        rgba(42, 148, 35, 0.683) 100%
+    ); 
+}
+.charityDonateBtn{
+    position: absolute;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
+    color: rgb(255, 255, 255);
+    top: 640px;
+    margin-left: 20px;
+    width: 120px;
+    padding: 3px;
+    border: 1px solid rgba(201, 190, 121, 0.71);
+    border-radius: 8px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(242, 243, 185, 0.747) 2%,
+        rgba(207, 189, 24, 0.484) 28%,
+        rgba(206, 189, 36, 0.957) 52%,
+        rgba(148, 124, 35, 0.683) 100%
+    ); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
+}
+.charityDonateBtn:hover{
+    box-shadow: none;
+    transform: scale(.99);
+    cursor: pointer;
+}
+.charityDonateBtn:active{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(242, 243, 185, 0.747) 2%,
+        rgba(138, 126, 18, 0.484) 28%,
+        rgba(206, 189, 36, 0.957) 52%,
+        rgba(148, 124, 35, 0.683) 100%
+    ); 
+}
+a{
+    color: black;
+}

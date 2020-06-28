@@ -49,7 +49,7 @@
     background-color: white;
     border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
-    box-shadow: 3px 3px 5px 1px #b8b8b885;
+    box-shadow: 0px 5px 8px 2px #00000049;
     z-index: 100;
     cursor: pointer;
 }
@@ -74,7 +74,7 @@
     border: 1px solid rgb(184, 172, 95);
     border-radius: 8px;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.676);
-    box-shadow: 3px 3px 2px 1px #25252585;
+    box-shadow: 0px 4px 3px #25252585;
     cursor: pointer;
 }
 .menuBtn:hover{
