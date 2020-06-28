@@ -6,7 +6,7 @@ import '../styles/SearchResults.css';
 const SearchResults = (props) => {
     return(
         <div id="searchResults">
-            {props.charities.map((charity, index) => <SearchCard key={index} {...charity}/>)}
+            {props.charities.map((charity, index) => <SearchCard key={index} {...charity} onClick={props.onClick}/>)}
         </div>
     )
 }

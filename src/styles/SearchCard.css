@@ -16,7 +16,7 @@
 }
 #searchCard:hover{
     width: 90.5%;
-    transform: scale(1.1);
+    transform: scale(1.105);
     background: linear-gradient(
         to bottom, 
         rgba(255, 255, 255, 0.577) 0%,
@@ -31,7 +31,7 @@
     ); 
 }
 
-@media only screen and (max-width: 605px){
+@media only screen and (max-width: 724px){
     #searchCard{
         font-size: 30px;
         padding: 10px 0px 10px 0px;

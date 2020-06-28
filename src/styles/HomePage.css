@@ -2,7 +2,7 @@
     width: 90%;
     height: 78%;
     position: relative;
-    top: 20px;
+    top: 0px;
     background-color: rgb(245, 249, 244);
     background: linear-gradient(
         to bottom, 
@@ -20,8 +20,8 @@
   }
   
 
-  @media only screen and (max-width: 605px){
+  @media only screen and (max-width: 724px){
     #homepage_wrapper{
-        height: 79%;
+        height: 77%;
     }
 }

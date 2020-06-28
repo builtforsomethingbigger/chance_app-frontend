@@ -1,15 +1,16 @@
 #searchResults{
     position: relative;
+    /* display: none; */
     display: inline-block;
     top: 80px;
     width: 90%;
     height: 81.5%;
-    border: 1px solid rgba(27, 91, 27, 0.433);
+    border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
     background: linear-gradient(
         to bottom, 
-        rgba(226, 226, 226, 0.413) 0%,
+        rgb(226, 226, 226) 0%,
         rgba(64, 64, 64, 0.868) 100%
     ); 
     overflow: scroll;
@@ -21,8 +22,8 @@
     box-shadow: inset 0 0 10px #0000007b;
 }
 
-@media only screen and (max-width: 605px){
+@media only screen and (max-width: 724px){
     #searchResults{
-        height: 82.75%;
+        height: 82.5%;
     }
 }

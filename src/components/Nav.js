@@ -39,7 +39,7 @@ export default class Nav extends React.Component{
                     <i id="ChanceLogo" className="icon" />
                 </div>
                 <div>
-                    <p className="menuBtn" onClick={this.clickHandler}>☰MENU☰</p>
+                    <p className="menuBtn" onClick={this.clickHandler}>☰ MENU ☰</p>
                 </div>
                 <div className="middle">
                     <MainMenu onMouseLeave={this.mouseOut} display={this.state.display} />

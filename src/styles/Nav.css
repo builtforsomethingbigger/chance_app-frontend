@@ -7,10 +7,10 @@
     position: relative;
     display: inline-block;
     width: 320px;
-    height: 95px;
+    height: 110px;
     top: 30px;
     left: -65px;
-    background-image: url('../images/Chance_Logo.png');
+    background-image: url('../images/Chance_logo_new.png');
     background-size: cover;
 }
 #ChanceLogo:hover{
@@ -43,11 +43,11 @@
     display: inline-block;
     width: 280px;
     height: 275px;
-    top: 0px;
+    top: -15px;
     left: -205px;
     padding-top: 10px;
     background-color: white;
-    border: 1px solid rgb(89, 165, 77);
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 10px;
     box-shadow: 3px 3px 5px 1px #b8b8b885;
     z-index: 100;
@@ -56,29 +56,47 @@
 .menuBtn{
     position: relative;
     display: inline-block;
-    top: 25px;
+    top: 15px;
     left:-65px;
     font-family: arial;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     text-decoration: none;
-    color: rgba(201, 6, 6, 0.646);
-    text-shadow: 2px 2px rgba(0, 0, 0, 0.146);
+    color: rgb(255, 255, 255);
+    padding: 1px 10px 3px 10px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(242, 243, 185, 0.747) 2%,
+        rgba(248, 236, 9, 0.377) 28%,
+        rgba(227, 217, 26, 0.957) 52%,
+        rgba(148, 124, 35, 0.683) 100%
+    ); 
+    border: 1px solid rgb(184, 172, 95);
+    border-radius: 8px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.676);
+    box-shadow: 3px 3px 2px 1px #25252585;
     cursor: pointer;
 }
 .menuBtn:hover{
-    text-shadow: none;
-    transform: scale(1.1);
+    transform: scale(.95);
+    box-shadow: 1px 1px 1px 1px #25252555;
 }
 .menuBtn:active{
-    color: rgb(140, 4, 4);
-    transform: scale(1.1);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.589);
+    box-shadow: none;
+    background: linear-gradient(
+        to bottom, 
+        rgba(177, 178, 106, 0.747) 2%,
+        rgba(248, 236, 9, 0.377) 28%,
+        rgba(236, 219, 131, 0.738) 52%,
+        rgba(241, 202, 6, 0.738) 100%
+    ); 
 }
 .dropdownAnimation{
     animation-name: dropdown;
     animation-duration: 1s;
     animation-iteration-count: 1;
-    transition-timing-function: ease-in;
+    transition-timing-function: ease-in-out;
     transition: 0.2s;
 }
 
@@ -107,14 +125,14 @@
     background: linear-gradient(
         to right, 
         rgba(255, 255, 255, 0) 2%,
-        rgba(168, 203, 158, 0.600) 28%,
-        rgba(168, 203, 158, 0.600) 82%,
+        rgba(180, 180, 180, 0.751) 28%,
+        rgba(180, 180, 180, 0.751) 82%,
         rgba(255, 255, 255, 0.0) 98%
     ); 
 }
 .menuFont:active{
     animation-name: menuClick;
-    animation-duration: .2s;
+    animation-duration: .17s;
     animation-iteration-count: 1;
 }
 
@@ -128,7 +146,7 @@
 
   
 
-@media only screen and (max-width: 605px){
+@media only screen and (max-width: 724px){
     .menuBtn{
         font-size: 30px;
     }
