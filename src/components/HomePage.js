@@ -4,6 +4,7 @@ import SearchResults from './SearchResults'
 import CharityCard from './CharityCard';
 import UserProfile from './UserProfile';
 import '../styles/HomePage.css';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class HomePage extends React.Component{
 
@@ -49,8 +50,13 @@ export default class HomePage extends React.Component{
             <div id="homepage_wrapper">
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults display={this.state.searchResults} charities={this.displaySearchedCharities()} onClick={this.showCharityCard} />
-                <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} onClick={this.hideCharityCard}/>
+                <ReactCSSTransitionGroup
+                    transitionName="fade"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={3000}>            
+                    <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} onClick={this.hideCharityCard}/>
                 <UserProfile display={this.state.userProfile} />
+                </ReactCSSTransitionGroup>
             </div>
         )
     }

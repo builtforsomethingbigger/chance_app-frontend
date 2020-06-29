@@ -20,12 +20,16 @@ export default class CharityCard extends React.Component{
         })
         }
     }
-
+    hideMoreInfo = e => {
+        this.setState({
+            moreInfo: false
+        })
+    }
 
     render(){
         return(
             <div id="charityCard" className="chairtyInfoFont" style={{display: this.props.display ? "inline-block" : "none"}}>
-                <div className="xClose xCharityCard" onClick={this.props.onClick}>x</div>
+                <div className="xClose xCharityCard" onClick={() => { this.hideMoreInfo(); this.props.onClick();}}>x</div>
                 <div className="charityInfoTable">
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
                         <tbody>
@@ -41,7 +45,7 @@ export default class CharityCard extends React.Component{
                                 <td><b className="orgLabel">TAG LINE</b></td>
                             </tr>
                             <tr>
-                                <td style={{paddingBottom: 30}}>{this.props.charity.tag_line}.toLocaleString('en')</td>
+                                <td style={{paddingBottom: 30}}>{this.props.charity.tag_line}</td>
                             </tr>
                             {/* MISSION STATEMENT */}
                             <tr>
@@ -90,17 +94,16 @@ export default class CharityCard extends React.Component{
                             </tr>
                             <tr>
                                 <td style={{paddingBottom: 30}}>
-                                    {this.props.charity.mailing_street_address}<br/>
-                                    {this.props.charity.mailing_street_address_2}<br/>
-                                    {this.props.charity.mailing_city}, 
-                                    {this.props.charity.mailing_zipcode}
+                                    <p style={{lineHeight: .4}}>{this.props.charity.mailing_street_address}</p>
+                                    {this.props.mailing_street_address_2 ? <p style={{lineHeight: .4}}>this.props.mailing_street_address</p> : ""}
+                                    <p style={{lineHeight: .4}}>{this.props.charity.mailing_city}, {this.props.charity.mailing_zipcode}</p>
                                 </td>
                             </tr>
                             <tr>
-                                <td><b className="moreInfoLabel">TAG LINE</b></td>
+                                <td><b className="moreInfoLabel">CHANCE ORGANIZATION OWNER</b></td>
                             </tr>
                             <tr>
-                                <td style={{paddingBottom: 100}}>{this.props.charity.tag_line}</td>
+                                <td style={{paddingBottom: 100}}>INSERT_</td>
                             </tr>
                         </tbody>
                     </table>

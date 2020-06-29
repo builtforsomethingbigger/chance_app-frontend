@@ -18,6 +18,19 @@
     box-shadow: 0px 0px 20px  #00000054;
     z-index: 99;
   }
+  .fade-leave-active{
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+  }
+    @keyframes fadeOut {
+        0% {
+            opacity:1;
+        }
+        100%  {
+            opacity:0;
+        }
+    }
+
   
 
   @media only screen and (max-width: 724px){

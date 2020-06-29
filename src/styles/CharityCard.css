@@ -52,9 +52,13 @@
 }
 #moreInfoTable{
     position: relative;
-    top: 40px;
+    top: 80px;
     width: 90%;
     text-align: center;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition-timing-function: ease-in-out;
 }
 .ratingLikeTable{
     width: 84%;
