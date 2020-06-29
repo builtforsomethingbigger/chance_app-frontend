@@ -1,6 +1,6 @@
 import React from 'react';
-import { HomePage, Nav, CharityCard } from './components';
-import { Route, Switch } from 'react-router-dom';
+import { HomePage, Nav} from './components';
+// import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
 const API = 'http://localhost:3000/charities'
