@@ -9,5 +9,6 @@ export { default as HomePage } from './HomePage';
 export { default as Nav } from './Nav';
 export { default as SignupForm } from './SignupForm';
 export { default as CharityCard } from './CharityCard';
+export { default as LoginPage } from './LoginPage';
 // export { default as UsersPage } from './UsersPage';
 // export { default as Comment } from './Comment';

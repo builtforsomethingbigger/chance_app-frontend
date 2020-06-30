@@ -41,7 +41,9 @@ body{
 img{
   border:0;
 }
-
+.noUnderline{
+  text-decoration: none;
+}
 
 /*CLOSE BUTTON*/
 .xClose{

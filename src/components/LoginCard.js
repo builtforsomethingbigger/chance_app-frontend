@@ -11,7 +11,8 @@ export default class LoginCard extends React.Component{
                         </tr>
                         <tr>
                             <td className="padTop20">USERNAME</td>
-                        </tr>                        <tr>
+                        </tr>                        
+                        <tr>
                             <td><input className="login-input"></input></td>
                         </tr>
                         <tr>
@@ -21,7 +22,7 @@ export default class LoginCard extends React.Component{
                             <td><input className="login-input"></input></td>
                         </tr>
                         <tr>
-                            <td><p className="login-btn">LOG IN</p></td>
+                            <td><p className="login-btn" onClick={this.props.loginPage}>LOG IN</p></td>
                         </tr>
                     </tbody>
                 </table>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { HomePage, Nav, SignupForm} from './components';
-// import { Route, Switch } from 'react-router-dom';
+import { HomePage, Nav, LoginPage} from './components';
+import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
 const charityAPI = 'http://localhost:3000/charities'
@@ -12,7 +12,8 @@ export default class App extends React.Component{
   state = {
     charities: [],
     donations: [],
-    currentUser: {}
+    currentUser: {},
+    userProfile: false
   }
 
   componentDidMount(){
@@ -48,17 +49,27 @@ export default class App extends React.Component{
     .then(currentUser => this.setState({ currentUser }))
   }
 
+  showUserProfile = () => {
+    if(this.state.userProfile === false){
+      this.setState({
+          userProfile: true
+      })
+    }else{
+      this.setState({
+        userProfile: false
+      })
+    }
+  }
 
   render(){
     return (
       <div className="App">
-        <Nav currentUser={this.state.currentUser} />
-        <SignupForm addNewUser={this.addNewUser} />
-        <HomePage charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations}/>
-        {/* <Switch>
-          <Route path='/signup' render={() => <SignupForm addNewUser={this.addNewUser} />} />
-          <Route path='/'  render={() =>  <HomePage charities={this.state.charities} />} />
-        </Switch> */}
+        <Nav currentUser={this.state.currentUser} userProfile={this.showUserProfile} />
+        {/* <HomePage charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/> */}
+        <Switch>
+          <Route path='/login' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
+          <Route path='/'  render={() =>  <HomePage  charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/>} />
+        </Switch>
       </div>
     );
   }

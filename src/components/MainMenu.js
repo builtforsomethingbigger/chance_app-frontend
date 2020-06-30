@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const MainMenu = (props) => {
     return(
@@ -11,9 +12,9 @@ const MainMenu = (props) => {
                     </tr>
                     <tr height="40px" className="menuFont">
                         <td width="30px" className="mainMenuIcon padLeft40"><span role="img" aria-label="menuIcon">🏠</span></td>
-                        <td>HOME SEARCH</td>
+                        <td><Link to='/' className="noUnderline">HOME SEARCH</Link></td>
                     </tr>                    
-                    <tr height="40px" className="menuFont">
+                    <tr height="40px" className="menuFont" onClick={props.userProfile}>
                         <td width="30px" className="mainMenuIcon padLeft40"><span role="img" aria-label="menuIcon">📊</span></td>
                         <td>MY PROFILE</td>
                     </tr>

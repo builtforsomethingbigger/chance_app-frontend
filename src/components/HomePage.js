@@ -12,7 +12,7 @@ export default class HomePage extends React.Component{
         searchInput: '',
         selectedCharity: {},
         charityCard: false,
-        userProfile: true
+        loginPage: true
     }
 
     searchCharities = e => {
@@ -45,15 +45,27 @@ export default class HomePage extends React.Component{
             charityCard: false
         })
     }
+
+    showLoginPage = e => {
+        if(this.state.loginPage === false){
+            this.setState({
+                loginPage: true
+            })
+        }else{
+            this.setState({
+            loginPage: false
+            })
+        }
+    }
     
     render(){
         return(
             <div id="homepage_wrapper">
-                <LoginPage />
+                <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults display={this.state.searchResults} charities={this.displaySearchedCharities()} onClick={this.showCharityCard} />
                 <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} onClick={this.hideCharityCard}/>
-                <UserProfile display={this.state.userProfile} currentUser={this.props.currentUser} donations={this.props.donations} />
+                <UserProfile userProfile={this.props.userProfile} currentUser={this.props.currentUser} charities={this.props.charities} donations={this.props.donations}  onClick={this.props.onClick}/>
             </div>
         )
     }

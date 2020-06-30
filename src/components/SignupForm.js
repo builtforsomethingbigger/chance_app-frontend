@@ -69,7 +69,7 @@ export default class SignupForm extends React.Component{
                     </tbody>
                     </table>
                     <button type="submit" className="signup-submit">CREATE ACCOUNT</button>
-                    <button type="submit" className="signup-goBack" onClick={this.props.onClick}>GO BACK</button>
+                    <p className="signup-goBack" onClick={this.props.onClick}>GO BACK</p>
                 </form>
             </div>
         )

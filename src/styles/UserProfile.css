@@ -9,6 +9,12 @@
     box-shadow: inset 0 0 10px #0000007b;
     background-color: white;
     z-index: 4;
+
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition-timing-function: ease-in-out;
+
 }
 .profileInfoRow{
     position: relative;
@@ -16,10 +22,33 @@
     width: 50%;
     max-width: 420px;
 }
-
+.xUserProfile{
+    position: relative;
+    float: left;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    animation-name: fadeIn;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+    transition-timing-function: ease-in-out;
+}
+    @keyframes fadeIn {
+        0% {
+            opacity:0;
+        }
+        100%  {
+            opacity:1;
+        }
+    }
+    
 
 
 @media only screen and (max-width: 605px){
+    #userProfile{
+        height: 92.5%;
+        left: 24px;
+    }
     .profileInfoRow{
         width: 100%;
     }

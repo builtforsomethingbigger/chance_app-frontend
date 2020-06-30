@@ -42,7 +42,7 @@ export default class Nav extends React.Component{
                     <p className="menuBtn" onClick={this.clickHandler}>☰ MENU ☰</p>
                 </div>
                 <div className="middle">
-                    <MainMenu onMouseLeave={this.mouseOut} display={this.state.display} />
+                    <MainMenu onMouseLeave={this.mouseOut} display={this.state.display} userProfile={this.props.userProfile} />
                 </div>
             </div>
         )

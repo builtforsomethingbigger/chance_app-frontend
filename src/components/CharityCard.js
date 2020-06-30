@@ -26,7 +26,11 @@ export default class CharityCard extends React.Component{
         })
     }
 
+
+    
     render(){
+        if(!this.props.charity.mission) return ''
+        const mission = this.props.charity.mission.replace(/<br>/g, ' ')
         return(
             <div id="charityCard" className="chairtyInfoFont" style={{display: this.props.display ? "inline-block" : "none"}}>
                 <div className="xClose xCharityCard" onClick={() => { this.hideMoreInfo(); this.props.onClick();}}>x</div>
@@ -52,7 +56,7 @@ export default class CharityCard extends React.Component{
                                 <td><b className="orgLabel">MISSION STATEMENT</b></td>
                             </tr>
                             <tr>
-                                <td style={{paddingBottom: 30}}>{this.props.charity.mission}</td>
+                                <td style={{paddingBottom: 30}}>{mission}</td>
                             </tr>
                             {/* CAUSE TYPE */}
                             <tr>
@@ -99,12 +103,12 @@ export default class CharityCard extends React.Component{
                                     <p style={{lineHeight: .4}}>{this.props.charity.mailing_city}, {this.props.charity.mailing_zipcode}</p>
                                 </td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                                 <td><b className="moreInfoLabel">CHANCE ORGANIZATION OWNER</b></td>
                             </tr>
                             <tr>
                                 <td style={{paddingBottom: 100}}>insert_user_first-last_name</td>
-                            </tr>
+                            </tr> */}
                         </tbody>
                     </table>
                 </div>

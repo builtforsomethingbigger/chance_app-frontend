@@ -1,23 +1,24 @@
 import React from 'react'
 import DonationBar from './DonationBar'
 import '../styles/UserProfile.css';
+import '../styles/Donations.css';
 
 export default class UserProfile extends React.Component{
 
     state = {
-        userDonations: []
+        bgColors: ['red', 'blue', 'green', 'lightgreen', 'yellow', 'yellowgreen', 'turquoise'],
+        display: true
     }
-
-    componentDidMount(){
-        this.allDonations()
-    }
-
+    
     allDonations = () => {
-        const allDonations = this.props.donations.filter(donation => donation.user_id === this.props.currentUser.id)
-        this.setState({
-            userDonations: allDonations
-        })
-        console.log(this.props.currentUser.id)
+        return this.props.donations.filter(donation => donation.user_id === this.props.currentUser.id)
+    }
+
+    calcBarContainer = () => {
+        const donations = this.allDonations()
+        const amounts = donations.map(donation => donation.donation_amount)
+        const maxDonation = Math.max.apply(null, amounts)
+        return maxDonation
     }
 
     totalDonations = (id) => {
@@ -29,10 +30,19 @@ export default class UserProfile extends React.Component{
         return sum
     }
 
+    closeUserProfile = () => {
+        this.setState({
+            display: false
+        })
+    }
+
+
     render(){
+        // const username = this.props.currentUser.username
         return(
-            <div id="userProfile" style={{display: this.props.display ? "inline-block" : "none"}}>
-                <div><h1>{this.props.currentUser.username}</h1></div>
+            <div id="userProfile" style={{display: this.props.userProfile ? "inline-block" : "none"}}>
+                <div className="xClose xUserProfile" onClick={this.props.onClick}>x</div>
+                <div><h1>{this.props.currentUser.username?.toUpperCase()}</h1></div>
                 <div className="profileInfoRow">
                     <h3>FIRST NAME</h3>
                     <p>{this.props.currentUser.first_name}</p>
@@ -49,10 +59,10 @@ export default class UserProfile extends React.Component{
                     <h3>TOTAL DONATIONS</h3>
                     <p>${this.totalDonations(this.props.currentUser.id)}</p>
                 </div>
-                <div id="userDonationGraph">
-                    {this.state.userDonations.map(donation => 
-                        <DonationBar key={donation.id} {...donation}/>
-                    )}
+                <div id="userDonationBar">
+                        {this.allDonations().map((donation, index) => 
+                            <DonationBar key={donation.id} {...donation} charities={this.props.charities} color={this.state.bgColors[index]} graphWidth={this.calcBarContainer()}/>
+                        )}
                 </div>
             </div>
         )
