@@ -4,6 +4,7 @@ import SearchResults from './SearchResults'
 import CharityCard from './CharityCard';
 import UserProfile from './UserProfile';
 import '../styles/HomePage.css';
+import LoginPage from './LoginPage';
 
 export default class HomePage extends React.Component{
 
@@ -11,7 +12,7 @@ export default class HomePage extends React.Component{
         searchInput: '',
         selectedCharity: {},
         charityCard: false,
-        userProfile: false
+        userProfile: true
     }
 
     searchCharities = e => {
@@ -26,6 +27,7 @@ export default class HomePage extends React.Component{
         return this.props.charities.filter(charity => charity.charity_name.toLowerCase().includes(input.toLowerCase())
           || (charity.tag_line && charity.tag_line.toLowerCase().includes(input.toLowerCase()))
           || charity.cause.toLowerCase().includes(input.toLowerCase())
+          || charity.mission.toLowerCase().includes(input.toLowerCase())
     )}
     
     showCharityCard = (id) => {
@@ -47,10 +49,11 @@ export default class HomePage extends React.Component{
     render(){
         return(
             <div id="homepage_wrapper">
+                <LoginPage />
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults display={this.state.searchResults} charities={this.displaySearchedCharities()} onClick={this.showCharityCard} />
                 <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} onClick={this.hideCharityCard}/>
-                <UserProfile display={this.state.userProfile} />
+                <UserProfile display={this.state.userProfile} currentUser={this.props.currentUser} donations={this.props.donations} />
             </div>
         )
     }

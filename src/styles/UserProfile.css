@@ -1,15 +1,14 @@
 #userProfile{
     position: absolute;
-    display: none;
     top: 40px;
     left: 36px;
     width: 90.5%;
-    height: 91%;
+    height: 90.5%;
     border: 1px solid rgba(27, 91, 27, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
     background-color: white;
-    z-index: 10;
+    z-index: 4;
 }
 .profileInfoRow{
     position: relative;
