@@ -18,11 +18,21 @@
     transition-timing-function: ease-in-out;
 
 }
-.profileInfoRow{
+.profileInfoRow_half{
     position: relative;
     display: inline-block;
     width: 50%;
     max-width: 420px;
+    font-size: 20px;
+    line-height: 20px;
+}
+.profileInfoRow_full{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 420px;
+    font-size: 20px;
+    line-height: 20px;
 }
 .xUserProfile{
     position: absolute;
@@ -43,7 +53,12 @@
             opacity:1;
         }
     }
-    
+h1{
+    color: green;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.532);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.347);  
+}    
 
 
 @media only screen and (max-width: 780px){
@@ -53,7 +68,7 @@
     p{
         font-size: 22px;
     }
-    .profileInfoRow{
+    .profileInfoRow_half{
         width: 100%;
         font-size: 21px;
         line-height: 22px;

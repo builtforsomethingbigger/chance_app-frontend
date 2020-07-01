@@ -4,9 +4,10 @@ import '../styles/SearchResults.css';
 
 
 const SearchResults = (props) => {
+    console.log(props)
     return(
         <div id="searchResults">
-            {props.charities.map((charity, index) => <SearchCard key={index} {...charity} onClick={props.onClick}/>)}
+            {props.charities.sort((a,b) => b.current_rating - a.current_rating).map((charity, index) => <SearchCard key={index} {...charity} onClick={props.onClick}/>)}
         </div>
     )
 }

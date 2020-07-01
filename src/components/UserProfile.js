@@ -38,40 +38,48 @@ export default class UserProfile extends React.Component{
         return sum
     }
 
-    closeUserProfile = () => {
-        this.setState({
-            display: false
-        })
-    }
+    // closeUserProfile = () => {
+    //     this.setState({
+    //         display: false
+    //     })
+    // }
 
 
     render(){
-        console.log(this.props)
+        console.log(this.props.currentUser)
+
         return(
             <div id="userProfile">
                 <div className="xClose xUserProfile" onClick={this.goBack}>x</div>
-                <div><h1>{this.props.currentUser.username?.toUpperCase()}</h1></div>
-                <div className="profileInfoRow">
-                    <h3>FIRST NAME</h3>
-                    <p>{this.props.currentUser.first_name}</p>
+                <div className="padTop20"><h1>{this.props.currentUser.username?.toUpperCase()}</h1></div>
+                <div className="profileInfoRow_full">
+                    <h3>FULL NAME</h3>
+                    <p>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
                 </div>
-                <div className="profileInfoRow">
-                    <h3>LAST NAME</h3>
-                    <p>{this.props.currentUser.last_name}</p>
-                </div>
-                <div className="profileInfoRow">
+                <div className="profileInfoRow_half">
                     <h3>EMAIL ADDRESS</h3>
                     <p>{this.props.currentUser.email_address}</p>
                 </div>
-                <div className="profileInfoRow">
-                    <h3>TOTAL DONATIONS</h3>
-                    <p>${this.totalDonations(this.props.currentUser.id)}</p>
+                <div className="profileInfoRow_half">
+                    <h3>PHONE NUMBER</h3>
+                    <p>{this.props.currentUser.phone_number}</p>
+                </div>
+                <div className="profileInfoRow_full">
+                    <h3>STREET ADDRESS</h3>
+                    <p>{this.props.currentUser.street_address}</p>
+                    <p>{this.props.currentUser.street_address_2}</p>
+                    <p>{this.props.currentUser.city}, {this.props.currentUser.zip}</p>
                 </div>
                 <div id="userDonationBar">
                         {this.allDonations().sort((a,b) => new Date(b.donation_date) - new Date(a.donation_date)).map((donation, index) => 
                             <DonationBar key={donation.id} {...donation} charities={this.props.charities} color={this.state.bgColors[index]} graphWidth={this.calcBarContainer()}/>
                         )}
                 </div>
+                <div className="profileInfoRow_full padTop20">
+                    <h3>TOTAL DONATIONS</h3>
+                    <p>${this.totalDonations(this.props.currentUser.id)}</p>
+                </div>
+
             </div>
         )
     }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginPage, HomePage, Nav, UserProfile } from './components';
+import { LoginPage, HomePage, Nav, UserProfile, CharitiesPage } from './components';
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
@@ -44,7 +44,7 @@ export default class App extends React.Component{
   }
 
   currentUser = () => {
-    fetch(`${userAPI}/76`)
+    fetch(`${userAPI}/1`)
     .then(res => res.json())
     .then(currentUser => this.setState({ currentUser }))
   }
@@ -68,7 +68,8 @@ export default class App extends React.Component{
         <div id="homepage_wrapper">
           <Switch>
             <Route path='/search'  render={(routerProps) =>  <HomePage {...routerProps} charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/>} />
-            <Route path='/profile'  render={(routerProps) =>  <UserProfile {...routerProps} userProfile={this.state.userProfile} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} />} />
+            <Route path='/profile'  render={(routerProps) =>  <UserProfile {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} />} />
+            <Route path='/charities'  render={(routerProps) =>  <CharitiesPage {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} />} />
             <Route path='/' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
           </Switch>
         </div>
