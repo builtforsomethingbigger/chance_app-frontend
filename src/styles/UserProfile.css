@@ -1,14 +1,16 @@
 #userProfile{
     position: absolute;
+    display: inline-block;
     top: 40px;
     left: 36px;
     width: 90.5%;
     height: 90.5%;
-    border: 1px solid rgba(27, 91, 27, 0.433);
+    border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
     background-color: white;
     z-index: 4;
+    overflow: scroll;
 
     animation-name: fadeIn;
     animation-duration: 1s;
@@ -23,7 +25,7 @@
     max-width: 420px;
 }
 .xUserProfile{
-    position: relative;
+    position: absolute;
     float: left;
     top: 8px;
     left: 8px;
@@ -44,12 +46,16 @@
     
 
 
-@media only screen and (max-width: 605px){
+@media only screen and (max-width: 780px){
     #userProfile{
-        height: 92.5%;
         left: 24px;
+    }
+    p{
+        font-size: 22px;
     }
     .profileInfoRow{
         width: 100%;
+        font-size: 21px;
+        line-height: 22px;
     }
 }

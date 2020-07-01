@@ -31,7 +31,7 @@
 }
 
 
-@media only screen and (max-width: 724px){
+@media only screen and (max-width: 780px){
     .searchField{
         font-size: 30px;
         height: 50px;

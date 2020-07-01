@@ -2,9 +2,8 @@ import React from 'react'
 import SearchBar from './SearchBar'
 import SearchResults from './SearchResults'
 import CharityCard from './CharityCard';
-import UserProfile from './UserProfile';
 import '../styles/HomePage.css';
-import LoginPage from './LoginPage';
+// import LoginPage from './LoginPage';
 
 export default class HomePage extends React.Component{
 
@@ -46,26 +45,13 @@ export default class HomePage extends React.Component{
         })
     }
 
-    showLoginPage = e => {
-        if(this.state.loginPage === false){
-            this.setState({
-                loginPage: true
-            })
-        }else{
-            this.setState({
-            loginPage: false
-            })
-        }
-    }
     
     render(){
         return(
-            <div id="homepage_wrapper">
-                <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>
+            <div id="homeSearchPage">
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults display={this.state.searchResults} charities={this.displaySearchedCharities()} onClick={this.showCharityCard} />
                 <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} onClick={this.hideCharityCard}/>
-                <UserProfile userProfile={this.props.userProfile} currentUser={this.props.currentUser} charities={this.props.charities} donations={this.props.donations}  onClick={this.props.onClick}/>
             </div>
         )
     }

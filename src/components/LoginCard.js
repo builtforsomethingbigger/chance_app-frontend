@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default class LoginCard extends React.Component{
     render(){
@@ -22,7 +23,7 @@ export default class LoginCard extends React.Component{
                             <td><input className="login-input"></input></td>
                         </tr>
                         <tr>
-                            <td><p className="login-btn" onClick={this.props.loginPage}>LOG IN</p></td>
+                            <td><Link to='/search' className="login-btn">LOG IN</Link></td>
                         </tr>
                     </tbody>
                 </table>

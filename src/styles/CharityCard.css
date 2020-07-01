@@ -22,7 +22,7 @@
     transition-timing-function: ease-in-out;
 }
 .xCharityCard{
-    position: relative;
+    position: absolute;
     float: left;
     top: 8px;
     left: 8px;
@@ -41,7 +41,7 @@
         }
     }
 .charityInfoTable{
-    position: absolute;
+    position: relative;
     display: inline-block;
     width: 90%;
     height: 600px;
@@ -52,6 +52,7 @@
 }
 #moreInfoTable{
     position: relative;
+    display: inline-block;
     top: 10px;
     width: 90%;
     text-align: center;
@@ -64,7 +65,7 @@
     width: 84%;
 }
 .followHeart{
-    margin-top: 4px;
+    margin-top: 25px;
     width: 50px;
     opacity: .8;
     cursor: pointer;
@@ -102,7 +103,7 @@
 }
 .moreDonateTable{
     position: relative;
-    top: 640px;
+    top: -50px;
     height: 110px;
     background: linear-gradient(
         to bottom, 
@@ -119,17 +120,17 @@
 }
     @keyframes slideUp {
         0% {
-            top:750px;
+            top:50px;
         }
         100%  {
-            top: 640px;
+            top: -50px;
         }
     }
 
 .charityMoreInfoBtn{
     position: absolute;
     display: inline-block;
-    top: 40px;
+    top: 35px;
     text-align: center;
     font-size: 16px;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
@@ -167,7 +168,7 @@
 .charityLessInfoBtn{
     position: absolute;
     display: inline-block;
-    top: 40px;
+    top: 35px;
     text-align: center;
     font-size: 16px;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
@@ -205,7 +206,7 @@
 .charityDonateBtn{
     position: absolute;
     display: inline-block;
-    top: 40px;
+    top: 35px;
     text-align: center;
     font-size: 16px;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
@@ -244,9 +245,13 @@ a{
     color: black;
 }
 
-@media only screen and (max-width: 724px){
+.dataProvidedBy{
+    font-family: monospace;
+    font-size: 12px;
+}
+
+@media only screen and (max-width: 780px){
     #charityCard{
-        height: 82.5%;
         top: 135px;
         left: 25px;
         }

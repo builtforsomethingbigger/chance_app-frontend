@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomePage, Nav, LoginPage} from './components';
+import { LoginPage, HomePage, Nav, UserProfile } from './components';
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
@@ -13,8 +13,8 @@ export default class App extends React.Component{
     charities: [],
     donations: [],
     currentUser: {},
-    userProfile: false
-  }
+    selectedCharity: {}
+}
 
   componentDidMount(){
     this.fetchAllCharities()
@@ -49,15 +49,15 @@ export default class App extends React.Component{
     .then(currentUser => this.setState({ currentUser }))
   }
 
-  showUserProfile = () => {
-    if(this.state.userProfile === false){
-      this.setState({
-          userProfile: true
-      })
+  showLoginPage = e => {
+    if(this.state.loginPage === false){
+        this.setState({
+            loginPage: true
+        })
     }else{
-      this.setState({
-        userProfile: false
-      })
+        this.setState({
+        loginPage: false
+        })
     }
   }
 
@@ -65,11 +65,13 @@ export default class App extends React.Component{
     return (
       <div className="App">
         <Nav currentUser={this.state.currentUser} userProfile={this.showUserProfile} />
-        {/* <HomePage charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/> */}
-        <Switch>
-          <Route path='/login' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
-          <Route path='/'  render={() =>  <HomePage  charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/>} />
-        </Switch>
+        <div id="homepage_wrapper">
+          <Switch>
+            <Route path='/search'  render={(routerProps) =>  <HomePage {...routerProps} charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/>} />
+            <Route path='/profile'  render={(routerProps) =>  <UserProfile {...routerProps} userProfile={this.state.userProfile} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} />} />
+            <Route path='/' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
+          </Switch>
+        </div>
       </div>
     );
   }

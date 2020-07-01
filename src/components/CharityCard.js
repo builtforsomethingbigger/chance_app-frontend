@@ -78,10 +78,11 @@ export default class CharityCard extends React.Component{
                             </tr>
                         </tbody>
                     </table>
+                    <div id="moreInfo"></div>
                     <table id="moreInfoTable" width="100%" border="0" cellSpacing="0" cellPadding="0" align="center" style={{display: this.state.moreInfo ? "initial" : "none"}}>
                         <tbody>
                             <tr>
-                                <td style={{paddingBottom: 30}}><p id="moreInfo" className="moreInfoDivider">ADDITIONAL INFORMATION</p></td>
+                                <td style={{paddingBottom: 30}}><p className="moreInfoDivider">ADDITIONAL INFORMATION</p></td>
                             </tr>
 
                             <tr>
@@ -97,18 +98,15 @@ export default class CharityCard extends React.Component{
                                 <td><b className="moreInfoLabel">MAILING ADDRESS</b></td>
                             </tr>
                             <tr>
-                                <td style={{paddingBottom: 30}}>
+                                <td style={{paddingBottom: 300}}>
                                     <p style={{lineHeight: .4}}>{this.props.charity.mailing_street_address}</p>
                                     {this.props.mailing_street_address_2 ? <p style={{lineHeight: .4}}>this.props.mailing_street_address</p> : ""}
                                     <p style={{lineHeight: .4}}>{this.props.charity.mailing_city}, {this.props.charity.mailing_zipcode}</p>
                                 </td>
                             </tr>
-                            {/* <tr>
-                                <td><b className="moreInfoLabel">CHANCE ORGANIZATION OWNER</b></td>
-                            </tr>
                             <tr>
-                                <td style={{paddingBottom: 100}}>insert_user_first-last_name</td>
-                            </tr> */}
+                                <td className="dataProvidedBy">Data provided by CharityNavigator API</td>
+                            </tr> 
                         </tbody>
                     </table>
                 </div>

@@ -4,10 +4,18 @@ import '../styles/UserProfile.css';
 import '../styles/Donations.css';
 
 export default class UserProfile extends React.Component{
-
+    constructor(props){
+        super(props)
+        this.goBack = this.goBack.bind(this)
+    }
+     
     state = {
         bgColors: ['red', 'blue', 'green', 'lightgreen', 'yellow', 'yellowgreen', 'turquoise'],
         display: true
+    }
+        
+    goBack(){
+        this.props.history.goBack();
     }
     
     allDonations = () => {
@@ -38,10 +46,10 @@ export default class UserProfile extends React.Component{
 
 
     render(){
-        // const username = this.props.currentUser.username
+        console.log(this.props)
         return(
-            <div id="userProfile" style={{display: this.props.userProfile ? "inline-block" : "none"}}>
-                <div className="xClose xUserProfile" onClick={this.props.onClick}>x</div>
+            <div id="userProfile">
+                <div className="xClose xUserProfile" onClick={this.goBack}>x</div>
                 <div><h1>{this.props.currentUser.username?.toUpperCase()}</h1></div>
                 <div className="profileInfoRow">
                     <h3>FIRST NAME</h3>
@@ -60,7 +68,7 @@ export default class UserProfile extends React.Component{
                     <p>${this.totalDonations(this.props.currentUser.id)}</p>
                 </div>
                 <div id="userDonationBar">
-                        {this.allDonations().map((donation, index) => 
+                        {this.allDonations().sort((a,b) => new Date(b.donation_date) - new Date(a.donation_date)).map((donation, index) => 
                             <DonationBar key={donation.id} {...donation} charities={this.props.charities} color={this.state.bgColors[index]} graphWidth={this.calcBarContainer()}/>
                         )}
                 </div>
