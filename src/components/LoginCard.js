@@ -20,7 +20,7 @@ export default class LoginCard extends React.Component{
                             <td className="padTop20">PASSWORD</td>
                         </tr>
                         <tr>
-                            <td><input className="login-input"></input></td>
+                            <td><input className="login-input" type="password"></input></td>
                         </tr>
                         <tr>
                             <td><Link to='/search' className="login-btn">LOG IN</Link></td>

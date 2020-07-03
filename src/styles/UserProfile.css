@@ -8,10 +8,9 @@
     border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
-    background-color: white;
+    background-color: rgba(241, 241, 241, 0.745);
     z-index: 4;
     overflow: scroll;
-
     animation-name: fadeIn;
     animation-duration: 1s;
     animation-iteration-count: 1;
@@ -53,13 +52,25 @@
             opacity:1;
         }
     }
-h1{
-    color: green;
-    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.532);
+h2,h3{
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.532);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(255, 255, 255, 0.347);  
-}    
-
+}
+.donation_amount{
+    margin-top:-10px;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    background: linear-gradient(
+        to bottom right, 
+        rgb(72, 200, 164) 0%,
+        rgb(78, 186, 156) 50%,
+        rgb(8, 105, 26) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+}
 
 @media only screen and (max-width: 780px){
     #userProfile{

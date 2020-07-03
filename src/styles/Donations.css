@@ -5,13 +5,14 @@
     height: fit-content;
     margin-top: 20px;
     padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.108);
     border-radius: 10px;
     background: linear-gradient(
         to left bottom, 
         rgb(170, 170, 170) 0%,
         rgb(234, 234, 234) 30%,
         rgb(217, 217, 217) 70%,
-        rgb(170, 170, 170) 100%
+        rgb(156, 156, 156) 100%
     ); 
     overflow: scroll;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.203);
@@ -21,8 +22,8 @@
     height: 22px;
     border: 1px solid black;
     margin: 10px 0px 10px 0px;
-    background-color: rgba(0, 0, 0, 0.251);
-    border: 1px solid rgba(255, 255, 255, 0.751);
+    background-color: rgba(0, 0, 0, 0.356);
+    border: 1px solid rgba(255, 255, 255, 0.583);
     border-radius: 5px;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.388);
     overflow: hidden;
@@ -36,11 +37,9 @@
     font-size: 17px;
     font-weight: 500;
     color:rgb(255, 255, 255);
-    -webkit-text-stroke-width: .6px;
-    -webkit-text-stroke-color: rgba(255, 255, 255, 0.347);  
     border-radius: 5px;
     box-shadow: 2px 0px 2px  rgba(0, 0, 0, 0.635);
-    box-shadow: inset -5px 8px 5px rgba(253, 253, 253, 0.546);
+    box-shadow: inset -5px 8px 5px rgba(255, 255, 255, 0.724);
     animation-duration: 1.5s;
     animation-name: barGrow;
     animation-iteration-count: 1;
@@ -59,7 +58,7 @@
     font-weight: bold;
     text-align: left;
     color: rgb(3, 3, 3);
-    -webkit-text-stroke-width: .5px;
-    -webkit-text-stroke-color: rgba(251, 251, 251, 0.834);  
+    -webkit-text-stroke-width: .3px;
+    -webkit-text-stroke-color: rgb(251, 251, 251);  
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.58);
 }

@@ -5,6 +5,7 @@
     left: 36px;
     width: 90.5%;
     height: 90.5%;
+    padding-top: 40px;
     border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
@@ -26,12 +27,11 @@
 .login-header{
     font-family: Arial, Helvetica, sans-serif;
     color:rgb(255, 255, 255);
-    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.438);
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.882);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.272);  
+    -webkit-text-stroke-color: rgba(122, 122, 122, 0.368);  
 }
 .chance-text{
-    color: rgb(25, 202, 25);
     text-shadow: 0px 3px 4px rgba(11, 59, 4, 0.568);
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(20, 57, 14, 0.608);  
@@ -41,16 +41,30 @@
     line-height: 22px;
 }
 .signup-link{
-    color: rgb(25, 202, 25);
+    background: linear-gradient(
+        to bottom, 
+        rgb(72, 200, 164) 0%,
+        rgb(78, 186, 156) 50%,
+        rgb(8, 105, 26) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(0, 0, 0, 0.272);  
-    font-weight: bold;
+    -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  
+    font-weight: normal;
     text-decoration: underline;
     cursor: pointer;
 }
 .signup-link:hover{
-    color: rgb(100, 255, 100); 
-}
+    background: linear-gradient(
+        to bottom, 
+        rgb(53, 234, 183) 0%,
+        rgb(49, 237, 184) 50%,
+        rgb(26, 171, 53) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  }
 #loginCard{
     position: relative;
     display: inline-block;
@@ -83,10 +97,11 @@
     -webkit-text-stroke-color: rgba(78, 62, 14, 0.519);  
     background: linear-gradient(
         to right, 
-        rgba(237, 237, 237, 0.250) 0%,
-        rgba(217, 208, 29, 0.834) 12%,
-        rgba(217, 208, 29, 0.957) 82%,
-        rgba(237, 237, 237, 0.250) 100%
+        rgba(255, 255, 255, 0) 2%,
+        rgba(113, 210, 167, 0.6) 15%,
+        rgba(78, 194, 155, 0.815) 50%,
+        rgba(113, 210, 167, 0.600) 85%,
+        rgba(255, 255, 255, 0.0) 98%
     ); 
 }
 .login-input{
@@ -117,10 +132,10 @@
     border-radius: 8px;
     background: linear-gradient(
         to bottom, 
-        rgba(196, 243, 185, 0.747) 2%,
-        rgba(49, 163, 47, 0.377) 28%,
-        rgba(28, 136, 26, 0.957) 52%,
-        rgba(42, 148, 35, 0.683) 100%
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(151, 226, 226, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
     ); 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
 }
@@ -134,10 +149,10 @@
     transform: scale(.98);
     background: linear-gradient(
         to bottom, 
-        rgba(196, 243, 185, 0.747) 2%,
-        rgba(49, 163, 47, 0.827) 28%,
-        rgba(28, 136, 26, 0.957) 52%,
-        rgba(42, 148, 35, 0.683) 100%
+        rgba(138, 201, 201, 0.747) 2%,
+        rgba(132, 197, 197, 0.747) 28%,
+        rgba(7, 129, 30, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
     ); 
 }
 

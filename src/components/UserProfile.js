@@ -10,7 +10,7 @@ export default class UserProfile extends React.Component{
     }
      
     state = {
-        bgColors: ['red', 'blue', 'green', 'lightgreen', 'yellow', 'yellowgreen', 'turquoise'],
+        bgColors: ['#8AC926', '#FF595E', '#1982C4', '#6A4C93', 'E13700', '#3EC300','#337CA0', '#F58A07', '#909CC2'],
         display: true
     }
         
@@ -46,15 +46,18 @@ export default class UserProfile extends React.Component{
 
 
     render(){
-        console.log(this.props.currentUser)
 
         return(
             <div id="userProfile">
                 <div className="xClose xUserProfile" onClick={this.goBack}>x</div>
-                <div className="padTop20"><h1>{this.props.currentUser.username?.toUpperCase()}</h1></div>
-                <div className="profileInfoRow_full">
+                <div className="padTop20"><h1 className="usernameHeadline">{this.props.currentUser.username?.toUpperCase()}</h1></div>
+                <div className="profileInfoRow_half">
                     <h3>FULL NAME</h3>
                     <p>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</p>
+                </div>
+                <div className="profileInfoRow_half">
+                    <h3>DONOR STATUS</h3>
+                    <p>{this.totalDonations(this.props.currentUser.id) ? "Active" : "Enthusiast"}</p>
                 </div>
                 <div className="profileInfoRow_half">
                     <h3>EMAIL ADDRESS</h3>
@@ -75,9 +78,9 @@ export default class UserProfile extends React.Component{
                             <DonationBar key={donation.id} {...donation} charities={this.props.charities} color={this.state.bgColors[index]} graphWidth={this.calcBarContainer()}/>
                         )}
                 </div>
-                <div className="profileInfoRow_full padTop20">
-                    <h3>TOTAL DONATIONS</h3>
-                    <p>${this.totalDonations(this.props.currentUser.id)}</p>
+                <div className="profileInfoRow_full pad20">
+                    <h2>TOTAL DONATIONS</h2>
+                    <p className="donation_amount">${this.totalDonations(this.props.currentUser.id)}</p>
                 </div>
 
             </div>

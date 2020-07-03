@@ -11,7 +11,7 @@ export default class DonationBar extends React.Component {
 
     render(){
         const charity = this.props.charities.find(charity => charity.id === this.props.charity_id)
-        if(!charity) return <div>Loading...</div>
+        if(!charity) return <div>Loading Charities...</div>
         const charityName = charity.charity_name
         return(
             <div>

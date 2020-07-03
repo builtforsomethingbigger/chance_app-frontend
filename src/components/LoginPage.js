@@ -33,7 +33,7 @@ export default class LoginPage extends React.Component{
     render(){
         return(
             <div id="loginPage">
-                <h1 className="login-header">WELCOME TO THE CHANCE APP</h1>
+                <h1>WELCOME TO THE CHANCE APP</h1>
                 <h2 className="login-header">THE PHILANTHROPIC SOCIAL NETWORK<br/>WITH A MISSION: TO MAKE CHANGE</h2>
                 <p className="login-signup-text">If you are a returning member, please log in below. <br/>
                     New to Chance? <span className="signup-link" onClick={this.showSignup}>Create a new account</span>!

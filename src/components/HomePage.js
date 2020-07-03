@@ -44,14 +44,13 @@ export default class HomePage extends React.Component{
             charityCard: false
         })
     }
-
     
     render(){
         return(
             <div id="homeSearchPage">
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults display={this.state.searchResults} charities={this.displaySearchedCharities()} onClick={this.showCharityCard} />
-                <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} onClick={this.hideCharityCard}/>
+                <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} currentUser={this.props.currentUser} favorites={this.props.favorites} onClick={this.hideCharityCard} favortied={this.state.hearted} favClick={this.props.favClick}/>
             </div>
         )
     }

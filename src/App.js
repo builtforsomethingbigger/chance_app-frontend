@@ -6,20 +6,29 @@ import './styles/App.css';
 const charityAPI = 'http://localhost:3000/charities'
 const userAPI = 'http://localhost:3000/users'
 const donationAPI = 'http://localhost:3000/donations'
+const favoritesAPI = 'http://localhost:3000/favorites'
 
 export default class App extends React.Component{
 
   state = {
+    currentUser: {},
     charities: [],
     donations: [],
-    currentUser: {},
+    favorites: [],
     selectedCharity: {}
 }
 
   componentDidMount(){
+    this.currentUser()
     this.fetchAllCharities()
     this.fetchAllDonations()
-    this.currentUser()
+    this.fetchAllFavorites()
+  }
+
+  currentUser = () => {
+    fetch(`${userAPI}/1`)
+    .then(res => res.json())
+    .then(currentUser => this.setState({ currentUser }))
   }
 
   fetchAllCharities = () => {
@@ -36,6 +45,13 @@ export default class App extends React.Component{
     ) 
   }
 
+  fetchAllFavorites = () => {
+    fetch(favoritesAPI)
+    .then(res=>res.json())
+    .then(favorites => this.setState({ favorites })
+    ) 
+  }
+
   addNewUser = (newUser) => {
     this.setState({
       users: [...this.state.users, newUser],
@@ -43,11 +59,6 @@ export default class App extends React.Component{
     })
   }
 
-  currentUser = () => {
-    fetch(`${userAPI}/1`)
-    .then(res => res.json())
-    .then(currentUser => this.setState({ currentUser }))
-  }
 
   showLoginPage = e => {
     if(this.state.loginPage === false){
@@ -61,15 +72,28 @@ export default class App extends React.Component{
     }
   }
 
+  handleFavoriteClick = (id, boolean) => {
+    if(boolean === true){
+      this.setState({
+        favorites: [...this.state.favorites, id]
+      })
+    }else{
+      let newFavorites = this.state.favorites.filter(favorites => favorites.id !== id)
+      this.setState({
+        favorites: newFavorites
+      })
+    }
+  }
+
   render(){
     return (
       <div className="App">
-        <Nav currentUser={this.state.currentUser} userProfile={this.showUserProfile} />
+        <Nav currentUser={this.state.currentUser} />
         <div id="homepage_wrapper">
           <Switch>
-            <Route path='/search'  render={(routerProps) =>  <HomePage {...routerProps} charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} userProfile={this.state.userProfile} onClick={this.showUserProfile}/>} />
+            <Route path='/search'  render={(routerProps) =>  <HomePage {...routerProps} charities={this.state.charities} currentUser={this.state.currentUser} donations={this.state.donations} favorites={this.state.favorites} favClick={this.handleFavoriteClick}/>} />
             <Route path='/profile'  render={(routerProps) =>  <UserProfile {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} />} />
-            <Route path='/charities'  render={(routerProps) =>  <CharitiesPage {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} />} />
+            <Route path='/charities'  render={(routerProps) =>  <CharitiesPage {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} favorites={this.state.favorites} />} />
             <Route path='/' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
           </Switch>
         </div>

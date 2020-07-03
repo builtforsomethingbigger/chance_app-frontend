@@ -7,6 +7,7 @@
     width: 99.7%;
     height: 95%;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     border: 1px solid rgba(0, 0, 0, 0.433);
     box-shadow:  0 -5px 10px #00000042;
     background: linear-gradient(
@@ -73,6 +74,7 @@ form input{
     display: inline-block;
     color: white;
     text-align: center;
+    font-weight: bold;
     text-shadow: 0px 2px 2px black;
     vertical-align: middle;
     padding: 5px 40px 5px 40px;
@@ -81,10 +83,10 @@ form input{
     border-radius: 8px;
     background: linear-gradient(
         to bottom, 
-        rgba(196, 243, 185, 0.747) 2%,
-        rgba(49, 163, 47, 0.377) 28%,
-        rgba(28, 136, 26, 0.957) 52%,
-        rgba(42, 148, 35, 0.683) 100%
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(151, 226, 226, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
     ); 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
     font-size: 16px;
@@ -99,10 +101,10 @@ form input{
     transform: scale(.98);
     background: linear-gradient(
         to bottom, 
-        rgba(196, 243, 185, 0.747) 2%,
-        rgba(49, 163, 47, 0.827) 28%,
-        rgba(28, 136, 26, 0.957) 52%,
-        rgba(42, 148, 35, 0.683) 100%
+        rgba(138, 201, 201, 0.747) 2%,
+        rgba(132, 197, 197, 0.747) 28%,
+        rgba(7, 129, 30, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
     ); 
 }
 
@@ -114,18 +116,19 @@ form input{
     display: inline-block;
     color: white;
     text-align: center;
+    font-weight: bold;
     text-shadow: 0px 2px 2px black;
     vertical-align: middle;
     padding: 5px 40px 5px 40px;
     border-radius: 50px;
-    border: 1px solid rgb(168, 82, 82);
+    border: 1px solid rgb(154, 154, 154);
     border-radius: 8px;
     background: linear-gradient(
         to bottom, 
-        rgba(243, 185, 185, 0.747) 2%,
-        rgba(163, 47, 47, 0.377) 28%,
-        rgba(136, 26, 26, 0.957) 52%,
-        rgba(148, 35, 35, 0.683) 100%
+        rgba(224, 224, 224, 0.747) 2%,
+        rgba(96, 96, 96, 0.614) 28%,
+        rgba(30, 30, 30, 0.758) 52%,
+        rgba(96, 96, 96, 0.683) 100%
     ); 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
     font-size: 16px;
@@ -140,10 +143,10 @@ form input{
     transform: scale(.98);
     background: linear-gradient(
         to bottom, 
-        rgba(243, 185, 185, 0.747) 2%,
-        rgba(209, 59, 59, 0.377) 28%,
-        rgba(136, 26, 26, 0.957) 52%,
-        rgba(148, 35, 35, 0.683) 100%
+        rgba(236, 236, 236, 0.747) 2%,
+        rgba(181, 181, 181, 0.377) 28%,
+        rgba(113, 113, 113, 0.957) 52%,
+        rgba(66, 66, 66, 0.683) 100%
     ); 
 }
 @media only screen and (max-width: 780px){

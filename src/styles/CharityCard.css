@@ -65,10 +65,15 @@
     width: 84%;
 }
 .followHeart{
-    margin-top: 25px;
-    width: 50px;
+    margin-top: 20px;
+    width: 60px;
     opacity: .8;
     cursor: pointer;
+}
+.followHearbeat{
+    animation-name: hearbeat;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 .followHeart:hover{
     opacity: 1;
@@ -78,19 +83,44 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.247);
-    color: green;
+    background: linear-gradient(
+        to bottom, 
+        rgb(72, 200, 164) 0%,
+        rgb(78, 186, 156) 50%,
+        rgb(8, 105, 26) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  
 }
 .moreInfoLabel{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 22px;
     text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.247);
-    color: rgb(51, 94, 50);
+    background: linear-gradient(
+        to bottom, 
+        rgb(59, 163, 133) 0%,
+        rgb(62, 146, 122) 50%,
+        rgb(4, 87, 20) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  
 }
 .moreInfoDivider{
     font-family:monospace;
     color:white;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.765);
     padding: 4px 100px 4px 100px;
-    background-color: rgb(58, 97, 58);
+    background: linear-gradient(
+        to bottom, 
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(89, 163, 163, 0.747) 28%,
+        rgba(33, 124, 49, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
 }
 .chairtyInfoFont{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -133,6 +163,7 @@
     top: 35px;
     text-align: center;
     font-size: 16px;
+    font-weight: bold;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
     color: white;
     margin-left: -20px;
@@ -142,10 +173,10 @@
     border-radius: 8px;
     background: linear-gradient(
         to bottom, 
-        rgba(196, 243, 185, 0.747) 2%,
-        rgba(49, 163, 47, 0.377) 28%,
-        rgba(28, 136, 26, 0.957) 52%,
-        rgba(42, 148, 35, 0.683) 100%
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(151, 226, 226, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
     ); 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
 }
@@ -159,10 +190,10 @@
     transform: scale(.98);
     background: linear-gradient(
         to bottom, 
-        rgba(196, 243, 185, 0.747) 2%,
-        rgba(49, 163, 47, 0.827) 28%,
-        rgba(28, 136, 26, 0.957) 52%,
-        rgba(42, 148, 35, 0.683) 100%
+        rgba(146, 210, 210, 0.747) 2%,
+        rgba(70, 151, 137, 0.747) 28%,
+        rgba(38, 143, 78, 0.902) 52%,
+        rgba(27, 114, 7, 0.683) 100%
     ); 
 }
 .charityLessInfoBtn{
@@ -171,6 +202,7 @@
     top: 35px;
     text-align: center;
     font-size: 16px;
+    font-weight: bold;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
     color: white;
     margin-left: -20px;
@@ -180,10 +212,10 @@
     border-radius: 8px;
     background: linear-gradient(
         to bottom, 
-        rgba(131, 175, 134, 0.747) 2%,
-        rgba(24, 85, 27, 0.436) 28%,
-        rgba(7, 73, 16, 0.957) 52%,
-        rgba(8, 50, 9, 0.683) 100%
+        rgba(146, 210, 210, 0.747) 2%,
+        rgba(70, 151, 137, 0.747) 28%,
+        rgba(38, 143, 78, 0.902) 52%,
+        rgba(27, 114, 7, 0.683) 100%
     ); 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
 }
@@ -197,10 +229,10 @@
     transform: scale(.98);
     background: linear-gradient(
         to bottom, 
-        rgba(131, 175, 134, 0.747) 2%,
-        rgba(39, 138, 44, 0.436) 28%,
-        rgba(7, 73, 16, 0.957) 52%,
-        rgba(8, 50, 9, 0.683) 100%
+        rgba(84, 190, 190, 0.747) 2%,
+        rgba(56, 122, 111, 0.747) 28%,
+        rgba(28, 110, 59, 0.902) 52%,
+        rgba(15, 68, 3, 0.683) 100%
     ); 
 }
 .charityDonateBtn{
@@ -219,9 +251,9 @@
     background: linear-gradient(
         to bottom, 
         rgba(242, 243, 185, 0.747) 2%,
-        rgba(207, 189, 24, 0.484) 28%,
-        rgba(206, 189, 36, 0.957) 52%,
-        rgba(148, 124, 35, 0.683) 100%
+        rgba(176, 149, 14, 0.484) 28%,
+        rgba(206, 178, 36, 0.957) 52%,
+        rgba(119, 98, 23, 0.683) 100%
     ); 
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
 }

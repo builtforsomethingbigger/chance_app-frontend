@@ -1,12 +1,15 @@
 import React from 'react'
 import HeartEmpty from '../images/heart_empty.gif'
-// import HeartFull from '../images/heart_full.gif'
+import HeartFull from '../images/heart_full.gif'
 import '../styles/CharityCard.css';
+
+const favoritesAPI = 'http://localhost:3000/favorites'
 
 export default class CharityCard extends React.Component{
 
     state = {
-        moreInfo: false
+        moreInfo: false,
+        favCharity: {}
     }
 
     showMoreInfo = e => {
@@ -26,9 +29,62 @@ export default class CharityCard extends React.Component{
         })
     }
 
+    userFavorites = () => {
+        const faves = this.props.favorites.filter(favorites => favorites.user_id === this.props.currentUser.id)
+        return faves 
+    }
+
+
+
+    hearted = () => {
+        const x = this.userFavorites().find(favorite => 
+            favorite.charity_id === this.props.charity.id)
+        if(x){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    findFavorite = () => {
+        const faves = this.props.favorites.filter(favorites => favorites.user_id === this.props.currentUser.id)
+        const x = faves.find(favorite => 
+            favorite.charity_id === this.props.charity.id)
+        return x.id
+    }
+
+    favoriteCharity = e => {
+        if(this.hearted()){
+            const id = this.findFavorite()
+            fetch(`${favoritesAPI}/${id}`,{
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    accept: 'application/json'
+                }
+            })
+            this.props.favClick(id, false)
+        }else{
+            fetch(favoritesAPI,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    accept: 'application/json'
+                },
+                body: JSON.stringify({
+                    user_id: this.props.currentUser.id,
+                    charity_id: this.props.charity.id
+                })
+            })
+            .then(res => res.json())
+            .then(favorite => this.props.favClick(favorite, true))
+        }
+    }
 
     
     render(){
+        console.log(this.props.charity.id)
+
         if(!this.props.charity.mission) return ''
         const mission = this.props.charity.mission.replace(/<br>/g, ' ')
         return(
@@ -115,7 +171,7 @@ export default class CharityCard extends React.Component{
                         <tbody>
                             <tr>
                                 <td width="33%" align="left" className={this.state.moreInfo ? "charityLessInfoBtn" : "charityMoreInfoBtn"} onClick={this.showMoreInfo}>{this.state.moreInfo ? "LESS INFO" : <a href="#moreInfo" style={{textDecoration:"none", color:"white"}}>MORE INFO</a>}</td>
-                                <td width="33%" align="center"><img className="followHeart" src={HeartEmpty} alt="Love This Charity!"/></td>
+                                <td width="33%" align="center"><img className={`followHeart ${this.hearted() ? `followHearbeat` : ''}`} src={this.hearted() ? HeartFull : HeartEmpty} alt="Love This Charity!" onClick={this.favoriteCharity}/></td>
                                 <td width="33%" align="right" className="charityDonateBtn">DONATE</td>
                             </tr>
                         </tbody>
