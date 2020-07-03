@@ -78,6 +78,10 @@ img{
 .noUnderline{
   text-decoration: none;
 }
+h1{
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgba(15, 35, 26, 0.347);  
+}
 
 /*CLOSE BUTTON*/
 .xClose{

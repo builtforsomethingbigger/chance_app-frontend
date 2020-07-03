@@ -58,7 +58,7 @@ h2,h3{
     -webkit-text-stroke-color: rgba(255, 255, 255, 0.347);  
 }
 .donation_amount{
-    margin-top:-10px;
+    margin-top: 10px;
     font-size: 28px;
     line-height: 28px;
     font-weight: bold;
@@ -70,6 +70,11 @@ h2,h3{
     ); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(16, 93, 69, 0.347);  
+}
+.up_20{
+    margin-top: -20px;
 }
 
 @media only screen and (max-width: 780px){

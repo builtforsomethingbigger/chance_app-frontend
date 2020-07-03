@@ -10,7 +10,7 @@ export default class UserProfile extends React.Component{
     }
      
     state = {
-        bgColors: ['#8AC926', '#FF595E', '#1982C4', '#6A4C93', 'E13700', '#3EC300','#337CA0', '#F58A07', '#909CC2'],
+        bgColors: ['#8AC926', '#0caca4', '#d36197','#04aa3b', '#b161d3', '#6A4C93', 'E13700', '#3EC300','#337CA0', '#F58A07', '#909CC2'],
         display: true
     }
         
@@ -79,8 +79,8 @@ export default class UserProfile extends React.Component{
                         )}
                 </div>
                 <div className="profileInfoRow_full pad20">
-                    <h2>TOTAL DONATIONS</h2>
-                    <p className="donation_amount">${this.totalDonations(this.props.currentUser.id)}</p>
+                    <p className="donation_amount">TOTAL DONATIONS</p>
+                    <h2 className="up_20">${this.totalDonations(this.props.currentUser.id)}</h2>
                 </div>
 
             </div>
