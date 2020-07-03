@@ -41,6 +41,8 @@
         transform: scale(1.0);
     }
     #searchCard:active{
-        color: rgba(167, 40, 40, 0.817);
-    }
+        color: rgba(40, 222, 165, 0.817);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: rgba(13, 156, 87, 0.671);  
+        }
 }

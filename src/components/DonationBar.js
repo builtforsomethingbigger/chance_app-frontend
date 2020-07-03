@@ -15,7 +15,11 @@ export default class DonationBar extends React.Component {
         const charityName = charity.charity_name
         return(
             <div>
-                <div className="donationBarInfo">{charityName}<br/>{this.props.donation_date}: ${this.props.donation_amount}</div>
+                <div className="donationBarInfo">
+                    {charityName}
+                    <br/>{this.props.donation_date}: ${this.props.donation_amount}
+                    <br/>NOTE: {this.props.donation_note}
+                </div>
                 <div id="barContainer">
                     <div className="donationBar" style={{width: `${this.calcBarWidth()}%`, backgroundColor: `${this.props.color}`}}></div>
                 </div>

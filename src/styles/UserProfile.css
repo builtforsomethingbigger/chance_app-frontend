@@ -8,7 +8,11 @@
     border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
-    background-color: rgba(241, 241, 241, 0.745);
+    background: linear-gradient(
+        to bottom right, 
+        rgb(218, 243, 235) 0%,
+        rgb(182, 227, 198) 100%
+    ); 
     z-index: 4;
     overflow: scroll;
     animation-name: fadeIn;
@@ -23,7 +27,7 @@
     width: 50%;
     max-width: 420px;
     font-size: 20px;
-    line-height: 20px;
+    line-height: 12px;
 }
 .profileInfoRow_full{
     position: relative;
@@ -31,7 +35,7 @@
     width: 100%;
     max-width: 420px;
     font-size: 20px;
-    line-height: 20px;
+    line-height: 12px;
 }
 .xUserProfile{
     position: absolute;
@@ -73,8 +77,8 @@ h2,h3{
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(16, 93, 69, 0.347);  
 }
-.up_20{
-    margin-top: -20px;
+.up_12{
+    margin-top: -12px;
 }
 
 @media only screen and (max-width: 780px){

@@ -8,7 +8,11 @@
     border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
-    background-color: rgba(241, 241, 241, 0.745);
+    background: linear-gradient(
+        to bottom right, 
+        rgb(218, 243, 235) 0%,
+        rgb(205, 241, 210) 100%
+    ); 
     z-index: 4;
     overflow: scroll;
 

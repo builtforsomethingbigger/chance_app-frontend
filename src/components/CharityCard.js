@@ -160,6 +160,12 @@ export default class CharityCard extends React.Component{
                                     <p style={{lineHeight: .4}}>{this.props.charity.mailing_city}, {this.props.charity.mailing_zipcode}</p>
                                 </td>
                             </tr>
+                            {/* <tr>
+                                <td><b className="moreInfoLabel">MAILING ADDRESS</b></td>
+                            </tr>
+                            <tr>
+                                <td>{this.props.charity.user_id}</td>
+                            </tr> */}
                             <tr>
                                 <td className="dataProvidedBy">Data provided by CharityNavigator API</td>
                             </tr> 

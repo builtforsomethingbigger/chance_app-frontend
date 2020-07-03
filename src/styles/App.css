@@ -1,6 +1,11 @@
 body{
-  /* background-color:rgb(168, 203, 158); */
-  background-color:rgb(54, 54, 54);
+  background: url('../images/bg_wallpaper.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-blend-mode: luminosity;
+  background-color:rgba(16, 124, 45, 0.521);
 }
 #wrapper{
   position: absolute;
@@ -38,11 +43,10 @@ body{
   top: 0px;
   width: 90%;
   height: 78%;
-  background-color: rgb(245, 249, 244);
   background: linear-gradient(
       to bottom, 
-      rgba(232, 228, 228, 0.837) 0%,
-      rgb(241, 245, 240) 40%,
+      rgba(232, 228, 228, 0.750) 0%,
+      rgb(241, 245, 240, 0.750) 40%,
       rgba(141, 141, 141, 0.878) 100%
   ); 
   display: inline-block;
