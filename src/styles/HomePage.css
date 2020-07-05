@@ -1,3 +1,22 @@
+#containerFrame{
+    position: relative;
+    display: inline-block;
+    top: 80px;
+    width: 90%;
+    height: 62vh;
+    max-height: 750px;
+    border: 1px solid rgba(0, 0, 0, 0.433);
+    border-radius: 15px;
+    box-shadow: inset 0 0 10px #0000007b;
+    background: linear-gradient(
+        to bottom, 
+        rgba(177, 237, 213, 0.5) 0%,
+        rgba(32, 92, 53, 0.75)100%
+    ); 
+    overflow: hidden;
+
+}
+
 #homeSearchPage{
     animation-name: fadeIn;
     animation-duration: 2s;

@@ -10,8 +10,10 @@
     box-shadow: inset 0 0 10px #0000007b;
     background: linear-gradient(
         to bottom right, 
-        rgb(218, 243, 235) 0%,
-        rgb(182, 227, 198) 100%
+        rgb(188, 214, 199) 0%,
+        rgb(221, 236, 233) 20%,
+        rgb(225, 226, 210) 70%,
+        rgb(226, 207, 216) 100%
     ); 
     z-index: 4;
     overflow: scroll;

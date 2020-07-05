@@ -15,7 +15,12 @@
     border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
-    background-color: rgba(177, 237, 213, 0.197);
+    background: linear-gradient(
+        to  right, 
+        rgb(168, 194, 179) 0%,
+        rgb(221, 236, 233) 30%,
+        rgb(225, 226, 210) 100%
+    ); 
 }
 .searchField:hover{
     box-shadow: inset 0 0 5px #0000007b;

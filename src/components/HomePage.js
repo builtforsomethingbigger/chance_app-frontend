@@ -10,8 +10,9 @@ export default class HomePage extends React.Component{
     state = {
         searchInput: '',
         selectedCharity: {},
+        loginPage: true,
         charityCard: false,
-        loginPage: true
+        donationForm: false
     }
 
     searchCharities = e => {
@@ -44,13 +45,38 @@ export default class HomePage extends React.Component{
             charityCard: false
         })
     }
+
+    showDonationForm = e => {
+        if(this.state.donationForm){
+            this.setState({
+                donationForm: false
+            })
+        }else{
+            this.setState({
+                donationForm: true
+            })
+        }
+    }
     
     render(){
         return(
             <div id="homeSearchPage">
                 <SearchBar onChange={this.searchCharities} value={this.state.searchInput}/>
                 <SearchResults display={this.state.searchResults} charities={this.displaySearchedCharities()} onClick={this.showCharityCard} />
-                <CharityCard display={this.state.charityCard} charity={this.state.selectedCharity} currentUser={this.props.currentUser} favorites={this.props.favorites} onClick={this.hideCharityCard} favortied={this.state.hearted} favClick={this.props.favClick}/>
+                <CharityCard 
+                    display={this.state.charityCard} 
+                    currentUser={this.props.currentUser} 
+                    allUsers={this.props.allUsers}
+                    charity={this.state.selectedCharity} 
+                    charities={this.props.charities}
+                    favorites={this.props.favorites} 
+                    onClick={this.hideCharityCard} 
+                    donationForm={this.state.donationForm} 
+                    donate={this.showDonationForm} 
+                    newDonation={this.props.newDonation} 
+                    favortied={this.state.hearted} 
+                    favClick={this.props.favClick}
+                />
             </div>
         )
     }

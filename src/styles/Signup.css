@@ -11,11 +11,11 @@
     border: 1px solid rgba(0, 0, 0, 0.433);
     box-shadow:  0 -5px 10px #00000042;
     background: linear-gradient(
-        to bottom, 
-        rgb(170, 170, 170) 0%,
-        rgb(198, 198, 198) 20%,
-        rgb(207, 207, 207) 70%,
-        rgb(170, 170, 170) 100%
+        to bottom right, 
+        rgb(168, 194, 179) 0%,
+        rgb(221, 236, 233) 20%,
+        rgb(225, 226, 210) 70%,
+        rgb(226, 207, 216) 100%
     ); 
     overflow: hidden;
     z-index: 2;

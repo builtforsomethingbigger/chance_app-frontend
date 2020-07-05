@@ -5,8 +5,27 @@ body{
   -o-background-size: cover;
   background-size: cover;
   background-blend-mode: luminosity;
-  background-color:rgba(16, 124, 45, 0.521);
+  background-color:rgba(19, 142, 87, 0.3);
+
+  animation-name: gradient;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
 }
+  @keyframes gradient {
+    25%  {
+      background-color:rgba(19, 142, 87, 0.5);
+    }
+    50% {
+      background-color:rgba(19, 142, 122, 0.6);
+    }
+    75%  {
+      background-color:rgba(19, 142, 52, 0.5);
+    }
+    100% {
+      background-color:rgba(19, 142, 87, 0.3);
+    }
+  }
+
 #wrapper{
   position: absolute;
   display: inline-block;
@@ -15,6 +34,7 @@ body{
   padding-bottom: 10px;
   text-align: center;
   overflow: hidden;
+  z-index: 99;  
 }
 .App {
   position: relative;
@@ -24,6 +44,7 @@ body{
   min-width: 580px;
   max-width: 950px;
   height: 100vh;
+  min-height: 1150px;
   max-height: 1180px;
   padding-bottom: 30px;
   overflow: hidden;
@@ -35,6 +56,7 @@ body{
     #ffffff6d 30%,
     rgba(0, 0, 0, 0.42) 100%
     ); 
+    z-index: 99;  
   }
 
 #homepage_wrapper{
@@ -43,6 +65,7 @@ body{
   top: 0px;
   width: 90%;
   height: 78%;
+  min-height: 920px;
   background: linear-gradient(
       to bottom, 
       rgba(232, 228, 228, 0.750) 0%,
@@ -76,6 +99,9 @@ body{
 .padTop20{
   padding-top: 20px;
 }
+.padBottom20{
+  padding-bottom: 20px;
+}
 img{
   border:0;
 }
@@ -84,7 +110,7 @@ img{
 }
 h1{
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: rgba(15, 35, 26, 0.347);  
+  -webkit-text-stroke-color: rgba(18, 63, 52, 0.347);  
 }
 
 /*CLOSE BUTTON*/

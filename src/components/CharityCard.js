@@ -1,4 +1,5 @@
 import React from 'react'
+import DonationForm from './DonationForm'
 import HeartEmpty from '../images/heart_empty.gif'
 import HeartFull from '../images/heart_full.gif'
 import '../styles/CharityCard.css';
@@ -29,13 +30,11 @@ export default class CharityCard extends React.Component{
         })
     }
 
+
     userFavorites = () => {
         const faves = this.props.favorites.filter(favorites => favorites.user_id === this.props.currentUser.id)
         return faves 
     }
-
-
-
     hearted = () => {
         const x = this.userFavorites().find(favorite => 
             favorite.charity_id === this.props.charity.id)
@@ -45,7 +44,6 @@ export default class CharityCard extends React.Component{
             return false
         }
     }
-
     findFavorite = () => {
         const faves = this.props.favorites.filter(favorites => favorites.user_id === this.props.currentUser.id)
         const x = faves.find(favorite => 
@@ -81,10 +79,12 @@ export default class CharityCard extends React.Component{
         }
     }
 
+    charityContact = () => {
+        const user = this.props.allUsers.find(user => user.id === this.props.charity.user_id)
+        return user
+    }
     
     render(){
-        console.log(this.props.charity.id)
-
         if(!this.props.charity.mission) return ''
         const mission = this.props.charity.mission.replace(/<br>/g, ' ')
         return(
@@ -154,18 +154,18 @@ export default class CharityCard extends React.Component{
                                 <td><b className="moreInfoLabel">MAILING ADDRESS</b></td>
                             </tr>
                             <tr>
-                                <td style={{paddingBottom: 300}}>
+                                <td style={{paddingBottom: 30}}>
                                     <p style={{lineHeight: .4}}>{this.props.charity.mailing_street_address}</p>
                                     {this.props.mailing_street_address_2 ? <p style={{lineHeight: .4}}>this.props.mailing_street_address</p> : ""}
                                     <p style={{lineHeight: .4}}>{this.props.charity.mailing_city}, {this.props.charity.mailing_zipcode}</p>
                                 </td>
                             </tr>
-                            {/* <tr>
-                                <td><b className="moreInfoLabel">MAILING ADDRESS</b></td>
+                            <tr>
+                                <td><b className="moreInfoLabel">POINT OF CONTACT</b></td>
                             </tr>
                             <tr>
-                                <td>{this.props.charity.user_id}</td>
-                            </tr> */}
+                                <td style={{paddingBottom: 300}}>{this.charityContact().first_name}&nbsp;{this.charityContact().last_name}</td>
+                            </tr>
                             <tr>
                                 <td className="dataProvidedBy">Data provided by CharityNavigator API</td>
                             </tr> 
@@ -178,13 +178,14 @@ export default class CharityCard extends React.Component{
                             <tr>
                                 <td width="33%" align="left" className={this.state.moreInfo ? "charityLessInfoBtn" : "charityMoreInfoBtn"} onClick={this.showMoreInfo}>{this.state.moreInfo ? "LESS INFO" : <a href="#moreInfo" style={{textDecoration:"none", color:"white"}}>MORE INFO</a>}</td>
                                 <td width="33%" align="center"><img className={`followHeart ${this.hearted() ? `followHearbeat` : ''}`} src={this.hearted() ? HeartFull : HeartEmpty} alt="Love This Charity!" onClick={this.favoriteCharity}/></td>
-                                <td width="33%" align="right" className="charityDonateBtn">DONATE</td>
+                                <td width="33%" align="right" className="charityDonateBtn" onClick={this.props.donate}>DONATE</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div>
-                </div>
+
+                <DonationForm charity={this.props.charity} currentUser={this.props.currentUser} display={this.props.donationForm} donate={this.props.donate} newDonation={this.props.newDonation}/>
+
             </div>
         )
     }

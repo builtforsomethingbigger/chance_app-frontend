@@ -1,0 +1,180 @@
+#donationForm{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 90px;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    line-height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.433);
+    border-radius: 15px;
+    box-shadow: inset  0 -5px 10px #00000042;
+    background: linear-gradient(
+        to bottom right, 
+        rgb(188, 214, 199) 0%,
+        rgb(221, 236, 233) 20%,
+        rgb(225, 226, 210) 70%,
+        rgb(226, 207, 216) 100%
+    ); 
+    overflow: hidden;
+    z-index: 2;
+
+    animation-name: donateSlideUp;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    transition-timing-function: ease-in-out;
+}
+    @keyframes donateSlideUp {
+        0% {
+            top:800px;
+        }
+        100%  {
+            top: 0px;
+        }
+    }
+.donation-input{
+    width: 85%;
+    height: 30px;
+    font-size: 16px;
+    border:none;
+    border-radius: 10px;
+    box-shadow: inset 0px 1px 5px black;
+}
+.donation-input:hover{
+    box-shadow: inset 0px 0px 3px black;
+}
+.donation-input-cvv{
+    width: 25%;
+    height: 22px;
+    font-size: 16px;
+    border:none;
+    border-radius: 10px;
+    box-shadow: inset 0px 1px 5px black;
+}
+.donation-input-cvv:hover{
+    box-shadow: inset 0px 0px 3px black;
+}
+.donation-input-note{
+    width: 85%;
+    height: 30px;
+    font-size: 16px;
+    border:none;
+    border-radius: 10px;
+    box-shadow: inset 0px 1px 5px black;
+}
+.donation-input-note:hover{
+    box-shadow: inset 0px 0px 3px black;
+}
+
+form input{
+    padding-left: 10px;
+}
+.select-input{
+    width: 88%;
+    height: 34px;
+    font-size: 16px;
+    border: 3px solid rgba(0, 0, 0, 0.306);
+    border-radius: 10px;
+    background: linear-gradient(
+        to bottom, 
+        rgb(255, 255, 255) 0%,
+        rgb(170, 170, 170) 100%
+    ); 
+}
+.select-input:hover{
+    background: linear-gradient(
+        to bottom, 
+        rgb(255, 255, 255) 0%,
+        rgb(203, 203, 203) 100%
+    ); 
+}
+.donation-submit{
+    margin-top: 20px;
+    margin-right: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0px 2px 2px black;
+    vertical-align: middle;
+    padding: 5px 40px 5px 40px;
+    border-radius: 50px;
+    border: 1px solid rgb(82, 168, 82);
+    border-radius: 8px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(151, 226, 226, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
+    font-size: 16px;
+}
+.donation-submit:hover{
+    box-shadow: none;
+    transform: scale(.99);
+    cursor: pointer;
+}
+.donation-submit:active{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(138, 201, 201, 0.747) 2%,
+        rgba(132, 197, 197, 0.747) 28%,
+        rgba(7, 129, 30, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+}
+
+.donation-goBack{
+    margin-top: 37px;
+    margin-left: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0px 2px 2px black;
+    vertical-align: middle;
+    padding: 2px 40px 2px 40px;
+    border-radius: 50px;
+    border: 1px solid rgb(154, 154, 154);
+    border-radius: 8px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(224, 224, 224, 0.747) 2%,
+        rgba(96, 96, 96, 0.614) 28%,
+        rgba(30, 30, 30, 0.758) 52%,
+        rgba(96, 96, 96, 0.683) 100%
+    ); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
+    font-size: 16px;
+}
+.donation-goBack:hover{
+    box-shadow: none;
+    transform: scale(.99);
+    cursor: pointer;
+}
+.donation-goBack:active{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(236, 236, 236, 0.747) 2%,
+        rgba(181, 181, 181, 0.377) 28%,
+        rgba(113, 113, 113, 0.957) 52%,
+        rgba(66, 66, 66, 0.683) 100%
+    ); 
+}
+@media only screen and (max-width: 780px){
+    #donationForm{
+        font-size: 14px;
+    }
+}

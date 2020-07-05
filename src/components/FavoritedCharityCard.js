@@ -9,7 +9,7 @@ export default class FavoritedCharityCard extends React.Component {
         const charityName = charity.charity_name      
         const id = charity.id  
         return(
-            <div>
+            <div id="favCharityCardContainer">
                 <Link to={`/${id}`} className="noUnderline">
                     <div className="favCharityCard">{charityName}</div>
                 </Link>
