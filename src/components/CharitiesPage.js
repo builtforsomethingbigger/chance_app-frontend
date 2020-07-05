@@ -52,17 +52,18 @@ export default class CharitiesPage extends React.Component{
             <div id="charitiesPage">
                 <div className="xClose xCharitiesPage" onClick={this.goBack}>x</div>
                 <h1>MY CHARITIES</h1>
-
-                {this.userFavorites().map(favorites => 
-                    <FavoritedCharityCard key={favorites.id} {...favorites} 
-                        charities={this.props.charities} 
-                        currentUser={this.props.currentUser} 
-                    />
-                )}
+                <div id="myCharitiesContainer">
+                    {this.userFavorites().map(favorites => 
+                        <FavoritedCharityCard key={favorites.id} {...favorites} 
+                            charities={this.props.charities} 
+                            currentUser={this.props.currentUser} 
+                        />
+                    )}
+                </div>
                 
                 <div id="myDonationsContainer">
+                    <h1>MY DONATIONS</h1>
                     <div id="userDonationBar">
-                        <h2 className="padBottom20">MY DONATIONS</h2>
                             {this.allDonations()
                                 .sort((a,b) => new Date(b.donation_date) - new Date(a.donation_date))
                                 .map((donation, index) => 
@@ -75,7 +76,7 @@ export default class CharitiesPage extends React.Component{
                     </div>
                     <div className="profileInfoRow_full pad20">
                         <p className="donation_amount">TOTAL DONATIONS</p>
-                        <h2 className="up_12">${this.totalDonations(this.props.currentUser.id)}</h2>
+                        <h2 className="up_12 padBottom20">${this.totalDonations(this.props.currentUser.id)}</h2>
                     </div>
                 </div>
 

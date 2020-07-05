@@ -35,12 +35,15 @@
     animation-iteration-count: 1;
     transition-timing-function: ease-in-out;
 }
+#myCharitiesContainer{
+    margin-bottom: 50px;
+}
 
 #favCharityCardContainer{
     position: relative;
-    display: inline-block;
     width: 90%;
-    padding: 20px;
+    display: inline-block;
+    padding: 10px;
     margin: 5px;
     background-color: rgba(253, 253, 253, 0.614);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.293);
@@ -48,7 +51,7 @@
 
 .favCharityCard{
     font-size: 20px;
-    padding: 20px;
+    padding: 10px;
     height: fit-content;
     background: linear-gradient(
         to bottom right, 
@@ -58,6 +61,25 @@
     ); 
     box-shadow: inset 0px 0px 12px rgba(0, 0, 0, 0.197);
     
+}
+.donation_amount{
+    margin-top: 20px;
+    font-size: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    background: linear-gradient(
+        to bottom right, 
+        rgb(72, 200, 164) 0%,
+        rgb(78, 186, 156) 50%,
+        rgb(8, 105, 26) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgba(16, 93, 69, 0.347);  
+}
+.up_12{
+    margin-top: -12px;
 }
 
 h1{

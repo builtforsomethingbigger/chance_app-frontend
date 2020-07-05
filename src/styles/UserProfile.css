@@ -63,25 +63,7 @@ h2,h3{
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: rgba(255, 255, 255, 0.347);  
 }
-.donation_amount{
-    margin-top: 10px;
-    font-size: 28px;
-    line-height: 28px;
-    font-weight: bold;
-    background: linear-gradient(
-        to bottom right, 
-        rgb(72, 200, 164) 0%,
-        rgb(78, 186, 156) 50%,
-        rgb(8, 105, 26) 100%
-    ); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;    
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: rgba(16, 93, 69, 0.347);  
-}
-.up_12{
-    margin-top: -12px;
-}
+
 
 @media only screen and (max-width: 780px){
     #userProfile{

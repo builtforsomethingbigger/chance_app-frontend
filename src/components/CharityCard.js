@@ -1,16 +1,29 @@
 import React from 'react'
+import CharityEvents from './CharityEvents'
 import DonationForm from './DonationForm'
 import HeartEmpty from '../images/heart_empty.gif'
 import HeartFull from '../images/heart_full.gif'
 import '../styles/CharityCard.css';
 
+const eventsAPI = 'http://localhost:3000/events'
 const favoritesAPI = 'http://localhost:3000/favorites'
 
 export default class CharityCard extends React.Component{
 
     state = {
+        events: [],
         moreInfo: false,
         favCharity: {}
+    }
+
+    componentDidMount(){
+        this.displayEvents()
+    }
+
+    displayEvents = () => {
+        fetch(eventsAPI)
+        .then(res => res.json())
+        .then(events => this.setState({ events }))
     }
 
     showMoreInfo = e => {
@@ -90,6 +103,7 @@ export default class CharityCard extends React.Component{
         return(
             <div id="charityCard" className="chairtyInfoFont" style={{display: this.props.display ? "inline-block" : "none"}}>
                 <div className="xClose xCharityCard" onClick={() => { this.hideMoreInfo(); this.props.onClick();}}>x</div>
+                <div><img className={`followHeart ${this.hearted() ? `followHearbeat` : ''}`} src={this.hearted() ? HeartFull : HeartEmpty} alt="Love This Charity!" onClick={this.favoriteCharity}/></div>
                 <div className="charityInfoTable">
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
                         <tbody>
@@ -132,15 +146,6 @@ export default class CharityCard extends React.Component{
                             <tr>
                                 <td style={{paddingBottom: 30}}><b className="orgLabel">OVERALL RATING:</b>&nbsp;&nbsp;{this.props.charity.current_rating}</td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <div id="moreInfo"></div>
-                    <table id="moreInfoTable" width="100%" border="0" cellSpacing="0" cellPadding="0" align="center" style={{display: this.state.moreInfo ? "initial" : "none"}}>
-                        <tbody>
-                            <tr>
-                                <td style={{paddingBottom: 30}}><p className="moreInfoDivider">ADDITIONAL INFORMATION</p></td>
-                            </tr>
-
                             <tr>
                                 <td style={{paddingBottom: 30}}><b className="moreInfoLabel">FINANCIAL RATING:</b>&nbsp;&nbsp;{this.props.charity.financial_rating}</td>
                             </tr>
@@ -164,21 +169,22 @@ export default class CharityCard extends React.Component{
                                 <td><b className="moreInfoLabel">POINT OF CONTACT</b></td>
                             </tr>
                             <tr>
-                                <td style={{paddingBottom: 300}}>{this.charityContact().first_name}&nbsp;{this.charityContact().last_name}</td>
+                                <td>{this.charityContact().first_name}&nbsp;{this.charityContact().last_name}</td>
                             </tr>
-                            <tr>
-                                <td className="dataProvidedBy">Data provided by CharityNavigator API</td>
-                            </tr> 
                         </tbody>
                     </table>
+                    <div className="dataProvidedBy"  style={{paddingTop: 50}}>Data provided by CharityNavigator API</div>
                 </div>
-                <div className="moreDonateTable">
+                {this.state.events.map(event => 
+                    <CharityEvents key={event.id} {...event} eventsTable={this.state.moreInfo} />    
+                )}
+                <div className="eventsDonateTable">
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
                         <tbody>
                             <tr>
-                                <td width="33%" align="left" className={this.state.moreInfo ? "charityLessInfoBtn" : "charityMoreInfoBtn"} onClick={this.showMoreInfo}>{this.state.moreInfo ? "LESS INFO" : <a href="#moreInfo" style={{textDecoration:"none", color:"white"}}>MORE INFO</a>}</td>
-                                <td width="33%" align="center"><img className={`followHeart ${this.hearted() ? `followHearbeat` : ''}`} src={this.hearted() ? HeartFull : HeartEmpty} alt="Love This Charity!" onClick={this.favoriteCharity}/></td>
-                                <td width="33%" align="right" className="charityDonateBtn" onClick={this.props.donate}>DONATE</td>
+                                <td width="45%" align="left" className={this.state.moreInfo ? "charityGoBackBtn" : "charityEventsBtn"} onClick={this.showMoreInfo}>{this.state.moreInfo ? "GO BACK" : <a href="#moreInfo" style={{textDecoration:"none", color:"white"}}>EVENTS</a>}</td>
+                                <td width="10%" align="center" className="spacer"></td>
+                                <td width="45%" align="right" className="charityDonateBtn" onClick={this.props.donate}>DONATE</td>
                             </tr>
                         </tbody>
                     </table>
