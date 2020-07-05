@@ -57,6 +57,7 @@ export default class CharitiesPage extends React.Component{
                         <FavoritedCharityCard key={favorites.id} {...favorites} 
                             charities={this.props.charities} 
                             currentUser={this.props.currentUser} 
+                            charityCard={this.props.charityCard}
                         />
                     )}
                 </div>

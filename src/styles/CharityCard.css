@@ -1,10 +1,10 @@
 #charityCard{
     position: absolute;
-    display: none;
-    top: 125px;
+    display: inline-block;
+    top: 40px;
     left: 3.5vw;
     width: 90%;
-    height: 81.5%;
+    height: 91%;
     border: 1px solid rgba(0, 0, 0, 0.433);
     border-radius: 15px;
     box-shadow: inset 0 0 10px #0000007b;
@@ -16,7 +16,7 @@
         rgb(226, 207, 216) 100%
     ); 
     overflow: scroll;
-    z-index: 1;
+    z-index: 115;
     
     animation-name: fadeIn;
     animation-duration: 1s;
@@ -51,19 +51,18 @@
     overflow: scroll;
     top: 0;
 }
-/* #charBtnContainer{
-    position: relative;
-    display: inline-block;
-    width: 300px;
-    background-color: white;
-} */
-.ratingLikeTable{
+/* .ratingLikeTable{
     width: 84%;
+} */
+.chairtyInfoFont{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
 }
+
 .followHeart{
     position: absolute;
-    top: 2px;
-    right: 10px;
+    top: 4px;
+    right: 15px;
     width: 45px;
     opacity: .8;
     cursor: pointer;
@@ -78,58 +77,27 @@
     opacity: 1;
     transform: scale(1.1);
 }
-.orgLabel{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.247);
-    background: linear-gradient(
-        to bottom, 
-        rgb(72, 200, 164) 0%,
-        rgb(78, 186, 156) 50%,
-        rgb(8, 105, 26) 100%
-    ); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;    
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  
-}
-.moreInfoLabel{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.247);
-    background: linear-gradient(
-        to bottom, 
-        rgb(59, 163, 133) 0%,
-        rgb(62, 146, 122) 50%,
-        rgb(4, 87, 20) 100%
-    ); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;    
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  
-}
-.moreInfoDivider{
-    font-family:monospace;
-    color:white;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.765);
-    padding: 4px 100px 4px 100px;
-    background: linear-gradient(
-        to bottom, 
-        rgba(162, 236, 236, 0.747) 2%,
-        rgba(89, 163, 163, 0.747) 28%,
-        rgba(33, 124, 49, 0.765) 62%,
-        rgba(10, 101, 22, 0.93) 100%
-    ); 
-}
-.chairtyInfoFont{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
-}
 .orgNameFont{
     font-size: 28px;
     line-height: 30px;
     padding: 2px 10px 15px 10px;
 }
+.orgLabel{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    /* text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.247); */
+    background: linear-gradient(
+        to bottom right, 
+        rgb(72, 248, 198) 0%,
+        rgba(48, 181, 143, 0.731) 50%,
+        rgba(4, 198, 39, 0.377) 100%
+    ); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(4, 64, 17, 0.382);  
+}
+
 .eventsDonateTable{
     position: absolute;
     display: block;
@@ -188,7 +156,7 @@
 }
 .charityEventsBtn:active{
     text-shadow: none;
-    transform: scale(.98);
+    transform: scale(.96);
     background: linear-gradient(
         to bottom, 
         rgba(146, 210, 210, 0.747) 2%,
@@ -227,7 +195,7 @@
 }
 .charityGoBackBtn:active{
     text-shadow: none;
-    transform: scale(.98);
+    transform: scale(.96);
     background: linear-gradient(
         to bottom, 
         rgba(84, 190, 190, 0.747) 2%,
@@ -284,14 +252,63 @@ a{
     font-size: 12px;
 }
 
+.createBtnContainer{
+    position: relative;
+    display: inline-block;
+}
+
+.createEventBtn{
+    width: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
+    padding: 5px 15px 5px 15px;
+    border: 1px solid green;
+    border-radius: 10px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(90, 214, 174, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+    cursor: pointer;
+}
+.createEventBtn:hover{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(146, 210, 210, 0.747) 2%,
+        rgba(70, 151, 137, 0.747) 28%,
+        rgba(38, 143, 78, 0.902) 52%,
+        rgba(27, 114, 7, 0.683) 100%
+    ); 
+}
+.createEventBtn:active{
+    transform: scale(.95);
+    background: linear-gradient(
+        to bottom, 
+        rgba(128, 182, 182, 0.747) 2%,
+        rgba(57, 130, 118, 0.747) 28%,
+        rgba(32, 117, 64, 0.902) 52%,
+        rgba(27, 114, 7, 0.683) 100%
+    );   
+}
+
 @media only screen and (max-width: 780px){
     #charityCard{
-        top: 135px;
         left: 25px;
     }
     .charityInfoTable{
         width: 80%;
+        height: 720px;
         padding: 10%;
-        margin-left: -15px;
     }   
+    .eventsDonateTable{
+        left: -5px;
+        padding-right: 10px;
+    }
 }

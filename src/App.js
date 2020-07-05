@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginPage, HomePage, Nav, UserProfile, CharitiesPage } from './components';
+import { LoginPage, HomePage, Nav, UserProfile, CharitiesPage, CharityCard } from './components';
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
@@ -16,7 +16,9 @@ export default class App extends React.Component{
     charities: [],
     donations: [],
     favorites: [],
-    selectedCharity: {}
+    selectedCharity: {},
+    charityCard: false,
+    donationForm: false
 }
 
   componentDidMount(){
@@ -86,6 +88,34 @@ export default class App extends React.Component{
     }
   }
 
+  showCharityCard = (id) => {
+    const findCharity = this.state.charities.find(charity => charity.id === id)
+    if (this.state.charityCard === false){
+        this.setState({
+            selectedCharity: findCharity,
+            charityCard: true
+        })
+    }
+  }
+
+  hideCharityCard = e => {
+      this.setState({
+          charityCard: false
+      })
+  }
+
+  showDonationForm = e => {
+      if(this.state.donationForm){
+          this.setState({
+              donationForm: false
+          })
+      }else{
+          this.setState({
+              donationForm: true
+          })
+      }
+  }
+
   handleFavoriteClick = (id, boolean) => {
     if(boolean === true){
       this.setState({
@@ -114,6 +144,7 @@ export default class App extends React.Component{
                 newDonation={this.newDonation} 
                 favorites={this.state.favorites} 
                 favClick={this.handleFavoriteClick}
+                charityCard={this.showCharityCard}
               />
             }/>
             <Route path='/profile'  render={(routerProps) =>  
@@ -123,12 +154,32 @@ export default class App extends React.Component{
                 donations={this.state.donations} 
               />}
             />
-            {/* <Route path='/charities/:id' name='charity' render={(routerProps) => {
-              const beef = parseInt(routerProps.match.params.id)
-              console.log(routerProps)
-              return <CharityCard {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} favorites={this.state.favorites} charID={beef} />
-            }} /> */}
-            <Route path='/charities'  render={(routerProps) =>  <CharitiesPage {...routerProps} currentUser={this.state.currentUser} charities={this.state.charities} donations={this.state.donations} favorites={this.state.favorites} />} />
+            <Route path='/charities/:id' name='charity' render={(routerProps) => {
+              const charityID = parseInt(routerProps.match.params.id)
+              return <CharityCard {...routerProps} 
+                display={this.state.charityCard} 
+                charID={charityID} 
+                currentUser={this.state.currentUser} 
+                charity={this.state.selectedCharity} 
+                allUsers={this.state.users}
+                charities={this.state.charities}
+                favorites={this.state.favorites} 
+                favClick={this.state.favClick}
+                donationForm={this.state.donationForm} 
+                newDonation={this.state.newDonation} 
+                onClick={this.hideCharityCard} 
+                donate={this.showDonationForm} 
+              />}} 
+            />
+            <Route path='/charities'  render={(routerProps) =>  
+              <CharitiesPage {...routerProps} 
+                currentUser={this.state.currentUser} 
+                charities={this.state.charities} 
+                donations={this.state.donations} 
+                favorites={this.state.favorites}
+                charityCard={this.showCharityCard}
+              />} 
+            />
             <Route path='/' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
           </Switch>
         </div>
@@ -136,3 +187,17 @@ export default class App extends React.Component{
     );
   }
 }
+// display={this.state.charityCard} 
+// charity={this.state.selectedCharity} 
+// donationForm={this.state.donationForm} 
+// favortied={this.state.hearted} 
+
+// currentUser={this.state.currentUser} 
+// allUsers={this.state.allUsers}
+// charities={this.state.charities}
+// favorites={this.state.favorites} 
+// newDonation={this.state.newDonation} 
+// favClick={this.state.favClick}
+
+// onClick={this.hideCharityCard} 
+// donate={this.showDonationForm} 
