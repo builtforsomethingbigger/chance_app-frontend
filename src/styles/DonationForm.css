@@ -19,7 +19,7 @@
         rgb(226, 207, 216) 100%
     ); 
     overflow: hidden;
-    z-index: 2;
+    z-index: 16;
 
     animation-name: donateSlideUp;
     animation-duration: 1s;

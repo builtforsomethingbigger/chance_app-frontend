@@ -1,5 +1,7 @@
 import React from 'react'
+import ChanceLogo from './ChanceLogo'
 import MainMenu from './MainMenu'
+import { Link } from 'react-router-dom';
 import '../styles/Nav.css';
 
 export default class Nav extends React.Component{
@@ -7,7 +9,7 @@ export default class Nav extends React.Component{
     state={
         display: false
     }
-
+    
     clickHandler = e => {
         if(this.state.display === true){
             this.setState({
@@ -36,7 +38,9 @@ export default class Nav extends React.Component{
         return(
             <div id="Nav">
                 <div>
-                    <i id="ChanceLogo" className="icon" />
+                    <Link to="/search">
+                        <ChanceLogo />
+                    </Link>
                 </div>
                 <div>
                     <p className="menuBtn" onClick={this.clickHandler}>☰ MENU ☰</p>

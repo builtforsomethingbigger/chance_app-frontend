@@ -164,7 +164,7 @@ export default class App extends React.Component{
                 allUsers={this.state.users}
                 charities={this.state.charities}
                 favorites={this.state.favorites} 
-                favClick={this.state.favClick}
+                favClick={this.handleFavoriteClick}
                 donationForm={this.state.donationForm} 
                 newDonation={this.state.newDonation} 
                 onClick={this.hideCharityCard} 

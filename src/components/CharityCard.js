@@ -1,5 +1,6 @@
 import React from 'react'
 import CharityEvents from './CharityEvents'
+import EventForm from './EventForm'
 import DonationForm from './DonationForm'
 import HeartEmpty from '../images/heart_empty.gif'
 import HeartFull from '../images/heart_full.gif'
@@ -17,8 +18,9 @@ export default class CharityCard extends React.Component{
 
     state = {
         events: [],
+        favCharity: {},
         moreInfo: false,
-        favCharity: {}
+        eventForm: false
     }
 
     componentDidMount(){
@@ -111,6 +113,18 @@ export default class CharityCard extends React.Component{
         const events = this.state.events.filter(events => events.charity_id === this.props.charity.id)
         return events
     }
+
+    showEventForm = e => {
+        if(this.state.eventForm){
+            this.setState({
+                eventForm: false
+            })
+        }else{
+            this.setState({
+                eventForm: true
+            })
+        }
+    }
     
     render(){
         if(!this.props.charity.mission) return ''
@@ -189,12 +203,14 @@ export default class CharityCard extends React.Component{
                                 <td>{this.charityContact().first_name}&nbsp;{this.charityContact().last_name}</td>
                             </tr>
                         </tbody>
+                        <div className="dataProvidedBy"  style={{paddingTop: 150}}>Data provided by CharityNavigator API</div>
                     </table>
-                    <div style={{paddingTop: 150, display: this.state.moreInfo ? "block" : "none"}}>
+                    <div style={{paddingTop: 150, paddingBottom: 300, display: this.state.moreInfo ? "block" : "none"}}>
                         <h1 id="moreInfo">OPPORTUNITIES &amp; EVENTS</h1>
                         <div className="createBtnContainer">
-                            <p className="createEventBtn">CREATE AN EVENT</p>
+                            <p className="createEventBtn" onClick={this.showEventForm}>CREATE AN EVENT</p>
                         </div>
+                        <EventForm display={this.state.eventForm} eventForm={this.showEventForm} />
                         {this.charityEvents()[0] ? 
                             this.charityEvents().map(event => 
                                 <CharityEvents key={event.id} {...event} eventsTable={this.state.moreInfo} />    
@@ -205,7 +221,6 @@ export default class CharityCard extends React.Component{
                             </p>
                         }
                     </div>
-                    <div className="dataProvidedBy"  style={{paddingTop: 150, paddingBottom: 50}}>Data provided by CharityNavigator API</div>
                 </div>
                 <div className="eventsDonateTable">
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
