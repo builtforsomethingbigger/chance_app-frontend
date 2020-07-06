@@ -144,6 +144,13 @@ export default class App extends React.Component{
     }
   }
 
+  /* MESSAGE FUNCTIONS */
+  handlePostMsgClick = (message) => {
+    this.setState({
+      messages: [...this.state.messages, {...message, user: this.state.currentUser}]
+    })
+  }
+
 
   render(){
     const inbox = this.state.inboxes.find(inbox => inbox.user_id === this.state.currentUser.id)
@@ -205,6 +212,7 @@ export default class App extends React.Component{
                 display={this.state.inbox}
                 userInbox={inbox}
                 messages={this.state.messages}
+                postMsg={this.handlePostMsgClick}
               />} 
             />
             <Route path='/' render={() => 

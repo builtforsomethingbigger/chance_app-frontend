@@ -24,7 +24,14 @@ export default class Inbox extends React.Component{
                 <h1>MY MESSAGES</h1>
                 <div id="inboxContainer">
                     <div className="inboxPanel">
-                        {unique.map((title, index) => <Messages key={index} title={title} allUsers={this.props.allUsers} messages={this.props.messages} />   
+                        {unique.map((title, index) => 
+                            <Messages key={index} title={title} 
+                                currentUser={this.props.currentUser}
+                                allUsers={this.props.allUsers} 
+                                messages={this.props.messages} 
+                                inbox={this.props.userInbox.id}
+                                postMsg={this.props.postMsg}
+                            />   
                         )}
                     </div>
                 </div>

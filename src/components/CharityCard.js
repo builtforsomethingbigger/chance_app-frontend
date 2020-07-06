@@ -214,7 +214,7 @@ export default class CharityCard extends React.Component{
                         <div className="createBtnContainer">
                             <p className="createEventBtn" onClick={this.showEventForm}>CREATE AN EVENT</p>
                         </div>
-                        <EventForm display={this.state.eventForm} eventForm={this.showEventForm} />
+                        <EventForm display={this.state.eventForm} eventForm={this.showEventForm}  eventForm={this.showEventForm}/>
                         {this.charityEvents()[0] ? 
                             this.charityEvents().map(event => 
                                 <CharityEvents key={event.id} {...event} eventsTable={this.state.moreInfo} />    

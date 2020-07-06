@@ -33,7 +33,7 @@ export default class Eventform extends React.Component{
                         </tbody>
                     </table>
                     <button type="submit" className="signup-submit">POST EVENT</button>
-                    <p className="signup-goBack" onClick={this.props.onClick}>GO BACK</p>
+                    <p className="signup-goBack" onClick={this.props.eventForm}>GO BACK</p>
                 </form>
             </div>
         )
