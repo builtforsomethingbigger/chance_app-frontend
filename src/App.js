@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoginPage, HomePage, Nav, UserProfile, CharitiesPage, CharityCard } from './components';
+import { LoginPage, HomePage, Nav, UserProfile, CharitiesPage, CharityCard, Inbox } from './components';
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
@@ -7,6 +7,8 @@ const charityAPI = 'http://localhost:3000/charities'
 const userAPI = 'http://localhost:3000/users'
 const donationAPI = 'http://localhost:3000/donations'
 const favoritesAPI = 'http://localhost:3000/favorites'
+const messageAPI = 'http://localhost:3000/messages'
+const inboxAPI = 'http://localhost:3000/inboxes'
 
 export default class App extends React.Component{
 
@@ -16,106 +18,119 @@ export default class App extends React.Component{
     charities: [],
     donations: [],
     favorites: [],
+    messages: [],
+    inboxes: [],
     selectedCharity: {},
     charityCard: false,
     donationForm: false
-}
+  }
 
+  /* FETCHES*/
   componentDidMount(){
     this.currentUser()
     this.fetchAllUsers()
     this.fetchAllCharities()
     this.fetchAllDonations()
     this.fetchAllFavorites()
+    this.fetchAllMessages()
+    this.fetchAllInboxes()
   }
-
   currentUser = () => {
     fetch(`${userAPI}/1`)
     .then(res => res.json())
     .then(currentUser => this.setState({ currentUser }))
   }
-
   fetchAllUsers = () => {
     fetch(userAPI)
     .then(res => res.json())
     .then(users => this.setState({ users })
     ) 
   }
-
   fetchAllCharities = () => {
     fetch(charityAPI)
     .then(res => res.json())
     .then(charities => this.setState({ charities })
     ) 
   }
-
   fetchAllDonations = () => {
     fetch(donationAPI)
     .then(res => res.json())
     .then(donations => this.setState({ donations })
     ) 
   }
-
   fetchAllFavorites = () => {
     fetch(favoritesAPI)
     .then(res => res.json())
     .then(favorites => this.setState({ favorites })
     ) 
   }
-
+  fetchAllMessages = () => {
+    fetch(messageAPI)
+    .then(res => res.json())
+    .then(messages => this.setState({ messages })
+    ) 
+  }
+  fetchAllInboxes = () => {
+    fetch(inboxAPI)
+    .then(res => res.json())
+    .then(inboxes => this.setState({ inboxes })
+    ) 
+  }
   addNewUser = (newUser) => {
     this.setState({
       users: [...this.state.users, newUser],
       currentUser: newUser
     })
   }
-
+  
+  /* LOG IN FUNCTIONS*/
+  showLoginPage = e => {
+    if(this.state.loginPage === false){
+      this.setState({
+        loginPage: true
+      })
+    }else{
+      this.setState({
+        loginPage: false
+      })
+    }
+  }
+  
+  /* CHARITY CARD FUNCTIONS*/
+  showCharityCard = (id) => {
+    const findCharity = this.state.charities.find(charity => charity.id === id)
+    if (this.state.charityCard === false){
+      this.setState({
+        selectedCharity: findCharity,
+        charityCard: true
+      })
+    }
+  }
+  hideCharityCard = e => {
+    this.setState({
+      charityCard: false
+    })
+  }
+  
+  /* DONATION FUNCTIONS*/
+  showDonationForm = e => {
+    if(this.state.donationForm){
+      this.setState({
+        donationForm: false
+      })
+    }else{
+      this.setState({
+        donationForm: true
+      })
+      }
+    }
   newDonation = (donation) => {
     this.setState({
       donations: [...this.state.donations, donation]
     })
   }
 
-  showLoginPage = e => {
-    if(this.state.loginPage === false){
-        this.setState({
-            loginPage: true
-        })
-    }else{
-        this.setState({
-        loginPage: false
-        })
-    }
-  }
-
-  showCharityCard = (id) => {
-    const findCharity = this.state.charities.find(charity => charity.id === id)
-    if (this.state.charityCard === false){
-        this.setState({
-            selectedCharity: findCharity,
-            charityCard: true
-        })
-    }
-  }
-
-  hideCharityCard = e => {
-      this.setState({
-          charityCard: false
-      })
-  }
-
-  showDonationForm = e => {
-      if(this.state.donationForm){
-          this.setState({
-              donationForm: false
-          })
-      }else{
-          this.setState({
-              donationForm: true
-          })
-      }
-  }
-
+  /* FAVORITE FUNCTIONS*/
   handleFavoriteClick = (id, boolean) => {
     if(boolean === true){
       this.setState({
@@ -129,7 +144,9 @@ export default class App extends React.Component{
     }
   }
 
+
   render(){
+    const inbox = this.state.inboxes.find(inbox => inbox.user_id === this.state.currentUser.id)
     return (
       <div className="App">
         <Nav currentUser={this.state.currentUser} />
@@ -180,7 +197,22 @@ export default class App extends React.Component{
                 charityCard={this.showCharityCard}
               />} 
             />
-            <Route path='/' render={() => <LoginPage loginPage={this.showLoginPage} display={this.state.loginPage}/>} />
+            <Route path='/inbox' render={(routerProps) => 
+              <Inbox {...routerProps} 
+                currentUser={this.state.currentUser} 
+                allUsers={this.state.users}
+                inbox={this.showInbox} 
+                display={this.state.inbox}
+                userInbox={inbox}
+                messages={this.state.messages}
+              />} 
+            />
+            <Route path='/' render={() => 
+              <LoginPage 
+                loginPage={this.showLoginPage} 
+                display={this.state.loginPage}
+              />} 
+            />
           </Switch>
         </div>
       </div>

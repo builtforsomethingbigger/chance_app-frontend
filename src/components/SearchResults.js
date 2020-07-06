@@ -8,7 +8,9 @@ const SearchResults = (props) => {
         <div id="searchResults">
             {props.charities.sort((a,b) => b.current_rating - a.current_rating)
             .map((charity, index) => <SearchCard key={index} {...charity} 
-            charityCard={props.charityCard}/>)}
+            charityCard={props.charityCard}/>)
+            .slice(0,100)
+            }
         </div>
     )
 }

@@ -138,7 +138,9 @@ export default class CharityCard extends React.Component{
                         <tbody>
                             {/* CHARITY NAME */}
                             <tr>
-                                <h1 style={{marginTop: -20, paddingBottom: 20}}>{this.props.charity.charity_name.toUpperCase()}</h1>
+                                <td>
+                                    <h1 style={{marginTop: -20, paddingBottom: 20}}>{this.props.charity.charity_name.toUpperCase()}</h1>
+                                </td>
                             </tr>
                             {/* TAG LINE */}
                             <tr>
@@ -202,8 +204,10 @@ export default class CharityCard extends React.Component{
                             <tr>
                                 <td>{this.charityContact().first_name}&nbsp;{this.charityContact().last_name}</td>
                             </tr>
+                            <tr>
+                                <td className="dataProvidedBy"  style={{paddingTop: 150}}>Data provided by CharityNavigator API</td>
+                            </tr>
                         </tbody>
-                        <div className="dataProvidedBy"  style={{paddingTop: 150}}>Data provided by CharityNavigator API</div>
                     </table>
                     <div style={{paddingTop: 150, paddingBottom: 300, display: this.state.moreInfo ? "block" : "none"}}>
                         <h1 id="moreInfo">OPPORTUNITIES &amp; EVENTS</h1>

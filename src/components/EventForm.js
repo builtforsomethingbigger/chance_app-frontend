@@ -32,7 +32,7 @@ export default class Eventform extends React.Component{
                             </tr>
                         </tbody>
                     </table>
-                    <button type="submit" className="signup-submit">CREATE ACCOUNT</button>
+                    <button type="submit" className="signup-submit">POST EVENT</button>
                     <p className="signup-goBack" onClick={this.props.onClick}>GO BACK</p>
                 </form>
             </div>
