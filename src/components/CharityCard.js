@@ -20,7 +20,8 @@ export default class CharityCard extends React.Component{
         events: [],
         favCharity: {},
         moreInfo: false,
-        eventForm: false
+        eventForm: false,
+        donationForm: false
     }
 
     componentDidMount(){
@@ -54,6 +55,27 @@ export default class CharityCard extends React.Component{
             moreInfo: false
         })
     }
+  /* EVENT FUNCTIONS */
+  postEvent = (event) => {
+    this.setState({
+        events: [...this.state.events, event]
+    })
+  }
+
+
+    /* DONATION FUNCTIONS*/
+    showDonationForm = e => {
+        if(this.state.donationForm){
+        this.setState({
+            donationForm: false
+        })
+        }else{
+        this.setState({
+            donationForm: true
+        })
+        }
+    }
+
 
 
     userFavorites = () => {
@@ -209,12 +231,13 @@ export default class CharityCard extends React.Component{
                             </tr>
                         </tbody>
                     </table>
-                    <div style={{paddingTop: 150, paddingBottom: 300, display: this.state.moreInfo ? "block" : "none"}}>
-                        <h1 id="moreInfo">OPPORTUNITIES &amp; EVENTS</h1>
+                    <div id="moreInfo" style={{paddingTop: 10}}></div>
+                    <div style={{paddingTop: 50, paddingBottom: 300, display: this.state.moreInfo ? "block" : "none"}}>
+                        <h1>OPPORTUNITIES &amp; EVENTS</h1>
                         <div className="createBtnContainer">
                             <p className="createEventBtn" onClick={this.showEventForm}>CREATE AN EVENT</p>
                         </div>
-                        <EventForm display={this.state.eventForm} eventForm={this.showEventForm}  eventForm={this.showEventForm}/>
+                        <EventForm charity={this.props.charity} currentUser={this.props.currentUser} display={this.state.eventForm} eventForm={this.showEventForm} postEvent={this.postEvent}/>
                         {this.charityEvents()[0] ? 
                             this.charityEvents().map(event => 
                                 <CharityEvents key={event.id} {...event} eventsTable={this.state.moreInfo} />    
@@ -232,13 +255,20 @@ export default class CharityCard extends React.Component{
                             <tr>
                                 <td width="45%" align="left" className={this.state.moreInfo ? "charityGoBackBtn" : "charityEventsBtn"} onClick={this.showMoreInfo}>{this.state.moreInfo ? "CLOSE" : <a href="#moreInfo" style={{textDecoration:"none", color:"white"}}>EVENTS</a>}</td>
                                 <td width="10%" align="center" className="spacer"></td>
-                                <td width="45%" align="right" className="charityDonateBtn" onClick={this.props.donate}>DONATE</td>
+                                <td width="45%" align="right" className="charityDonateBtn" onClick={this.showDonationForm}>DONATE</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <DonationForm charity={this.props.charity} currentUser={this.props.currentUser} display={this.props.donationForm} donate={this.props.donate} newDonation={this.props.newDonation}/>
+                <DonationForm 
+                    charity={this.props.charity} 
+                    currentUser={this.props.currentUser} 
+                    display={this.state.donationForm} 
+                    donationForm={this.showDonationForm} 
+                    donate={this.props.donate} 
+                    newDonation={this.props.newDonation}
+                />
 
             </div>
         )

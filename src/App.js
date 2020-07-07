@@ -21,11 +21,10 @@ export default class App extends React.Component{
     messages: [],
     inboxes: [],
     selectedCharity: {},
-    charityCard: false,
-    donationForm: false
+    charityCard: false
   }
 
-  /* FETCHES*/
+  /* FETCHES */
   componentDidMount(){
     this.currentUser()
     this.fetchAllUsers()
@@ -83,7 +82,7 @@ export default class App extends React.Component{
     })
   }
   
-  /* LOG IN FUNCTIONS*/
+  /* LOG IN FUNCTIONS */
   showLoginPage = e => {
     if(this.state.loginPage === false){
       this.setState({
@@ -96,7 +95,7 @@ export default class App extends React.Component{
     }
   }
   
-  /* CHARITY CARD FUNCTIONS*/
+  /* CHARITY CARD FUNCTIONS */
   showCharityCard = (id) => {
     const findCharity = this.state.charities.find(charity => charity.id === id)
     if (this.state.charityCard === false){
@@ -111,26 +110,15 @@ export default class App extends React.Component{
       charityCard: false
     })
   }
-  
-  /* DONATION FUNCTIONS*/
-  showDonationForm = e => {
-    if(this.state.donationForm){
-      this.setState({
-        donationForm: false
-      })
-    }else{
-      this.setState({
-        donationForm: true
-      })
-      }
-    }
+
+  /* DONATION FUNCTIONS */
   newDonation = (donation) => {
     this.setState({
       donations: [...this.state.donations, donation]
     })
   }
 
-  /* FAVORITE FUNCTIONS*/
+  /* FAVORITE FUNCTIONS */
   handleFavoriteClick = (id, boolean) => {
     if(boolean === true){
       this.setState({
@@ -189,10 +177,9 @@ export default class App extends React.Component{
                 charities={this.state.charities}
                 favorites={this.state.favorites} 
                 favClick={this.handleFavoriteClick}
-                donationForm={this.state.donationForm} 
-                newDonation={this.state.newDonation} 
+                newDonation={this.newDonation} 
                 onClick={this.hideCharityCard} 
-                donate={this.showDonationForm} 
+                postEvent={this.postEvent}
               />}} 
             />
             <Route path='/charities'  render={(routerProps) =>  

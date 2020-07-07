@@ -3,7 +3,7 @@
     display: inline-block;
     left: -20px;
     margin-top: 10px;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
     width: 100%;
     text-align: center;
     border: 20px solid rgba(37, 241, 92, 0.231);
@@ -22,8 +22,58 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
-
-
+.responseInput{
+    width: 90%;
+    height: 200px;
+    margin: 5px 0px 10px 0px;
+    padding: 10px;
+    text-align: left;
+    border:none;
+    border-radius: 10px;
+    box-shadow: inset 0px 1px 5px rgba(0, 0, 0, 0.521);
+    white-space: pre-wrap;
+}
+.sendResponseBtn{
+    margin-top: 20px;
+    margin-right: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0px 2px 2px black;
+    vertical-align: middle;
+    padding: 5px 40px 5px 40px;
+    border-radius: 50px;
+    border: 1px solid rgb(82, 168, 82);
+    border-radius: 8px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(151, 226, 226, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
+    font-size: 16px;
+}
+.sendResponseBtn:hover{
+    box-shadow: none;
+    transform: scale(.99);
+    cursor: pointer;
+}
+.sendResponseBtn:active{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(138, 201, 201, 0.747) 2%,
+        rgba(132, 197, 197, 0.747) 28%,
+        rgba(7, 129, 30, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+}
 
 @media only screen and (max-width: 780px){
     .eventLabel{

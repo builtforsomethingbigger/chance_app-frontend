@@ -26,6 +26,7 @@ export default class DonationForm extends React.Component{
         })
         .then(res=>res.json())
         .then(donation => this.props.newDonation(donation))
+        return this.props.donationForm
     }
 
     onChangeHandler = e => {
@@ -70,8 +71,8 @@ export default class DonationForm extends React.Component{
                             </tr>
                     </tbody>
                     </table>
-                    <Link to='/profile'><button type="submit" className="donation-submit" onClick={this.submitDonation}>SUBMIT</button></Link>
-                    <p className="donation-goBack" onClick={this.props.donate}>CANCEL</p>
+                    <Link to='/charities'><button type="submit" className="donation-submit" onClick={this.submitDonation}>SUBMIT</button></Link>
+                    <p className="donation-goBack" onClick={this.props.donationForm}>CANCEL</p>
                 </form>
             </div>
         )

@@ -12,7 +12,7 @@ const SearchCard = (props) => {
     //   )
 
       return(
-        <Link to='/charities/:id'>
+        <Link to={`/charities/${props.id}`}>
             <div id="searchCard" onClick={() => {props.charityCard(props.id)} }>
             {props.charity_name}
             </div>
