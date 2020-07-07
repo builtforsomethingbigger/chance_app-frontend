@@ -133,9 +133,10 @@
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+    text-decoration: none;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
     color: white;
-    margin-left: -20px;
+    margin-left: -30px;
     width: 120px;
     padding: 6px;
     border: 1px solid rgb(82, 168, 82);
@@ -172,9 +173,10 @@
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+    text-decoration: none;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.486);
     color: white;
-    margin-left: -20px;
+    margin-left: -30px;
     width: 120px;
     padding: 6px;
     border: 1px solid rgb(88, 168, 82);

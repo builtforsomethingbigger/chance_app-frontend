@@ -29,7 +29,8 @@ export default class CharityCard extends React.Component{
     }
 
     goBack(){
-        this.props.history.goBack();
+        const anchor = this.props.history.location.hash 
+        anchor ? this.props.history.go(-2) : this.props.history.goBack();
     }
     
 
@@ -55,13 +56,13 @@ export default class CharityCard extends React.Component{
             moreInfo: false
         })
     }
-  /* EVENT FUNCTIONS */
-  postEvent = (event) => {
-    this.setState({
-        events: [...this.state.events, event]
-    })
-  }
 
+    /* EVENT FUNCTIONS */
+    postEvent = (event) => {
+        this.setState({
+            events: [...this.state.events, event]
+        })
+    }
 
     /* DONATION FUNCTIONS*/
     showDonationForm = e => {
@@ -149,7 +150,7 @@ export default class CharityCard extends React.Component{
     }
     
     render(){
-        if(!this.props.charity.mission) return ''
+        if(!this.props.charity) return ''
         const mission = this.props.charity.mission.replace(/<br>/g, ' ')
         return(
             <div id="charityCard" className="chairtyInfoFont">
@@ -232,15 +233,23 @@ export default class CharityCard extends React.Component{
                         </tbody>
                     </table>
                     <div id="moreInfo" style={{paddingTop: 10}}></div>
-                    <div style={{paddingTop: 50, paddingBottom: 300, display: this.state.moreInfo ? "block" : "none"}}>
+                    <div style={{paddingTop: 30, paddingBottom: 420, display: this.state.moreInfo ? "block" : "none"}}>
                         <h1>OPPORTUNITIES &amp; EVENTS</h1>
                         <div className="createBtnContainer">
                             <p className="createEventBtn" onClick={this.showEventForm}>CREATE AN EVENT</p>
                         </div>
-                        <EventForm charity={this.props.charity} currentUser={this.props.currentUser} display={this.state.eventForm} eventForm={this.showEventForm} postEvent={this.postEvent}/>
+                        <EventForm 
+                            charity={this.props.charity} 
+                            currentUser={this.props.currentUser} 
+                            display={this.state.eventForm} 
+                            eventForm={this.showEventForm} 
+                            postEvent={this.postEvent}
+                        />
                         {this.charityEvents()[0] ? 
                             this.charityEvents().map(event => 
-                                <CharityEvents key={event.id} {...event} eventsTable={this.state.moreInfo} />    
+                                <CharityEvents key={event.id} {...event} 
+                                    eventsTable={this.state.moreInfo} 
+                                />    
                             ) : 
                             <p>
                                 {this.props.charity.charity_name} has no&nbsp;upcoming&nbsp;events.<br/>
@@ -253,9 +262,9 @@ export default class CharityCard extends React.Component{
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
                         <tbody>
                             <tr>
-                                <td width="45%" align="left" className={this.state.moreInfo ? "charityGoBackBtn" : "charityEventsBtn"} onClick={this.showMoreInfo}>{this.state.moreInfo ? "CLOSE" : <a href="#moreInfo" style={{textDecoration:"none", color:"white"}}>EVENTS</a>}</td>
+                                <td width="45%" align="center"><a href="#moreInfo" className={this.state.moreInfo ? "charityGoBackBtn" : "charityEventsBtn"} onClick={this.showMoreInfo} >{this.state.moreInfo ? "CLOSE" : "EVENTS" }</a></td>
                                 <td width="10%" align="center" className="spacer"></td>
-                                <td width="45%" align="right" className="charityDonateBtn" onClick={this.showDonationForm}>DONATE</td>
+                                <td width="45%" align="center" className="charityDonateBtn" onClick={this.showDonationForm}>DONATE</td>
                             </tr>
                         </tbody>
                     </table>

@@ -97,3 +97,9 @@ h1{
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(11, 90, 28, 0.272);  
 }    
+
+@media only screen and (max-width: 780px){
+    #charitiesPage{
+        left: 24px;
+    }
+}

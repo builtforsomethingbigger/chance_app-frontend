@@ -71,9 +71,9 @@ export default class Messages extends React.Component{
                             </table>
                         </form>
                     </div>
-                    {this.state.message_body ? <img className="ellipses" src="https://english.mathrubhumi.com/polopoly_fs/1.3376958.1544262349!/menu/standard/file/loading.gif"/> : ''}
-                    {messages.sort((a,b) => b.id - a.id).map(msgBody => 
-                    <div className="msgBody">
+                    {this.state.message_body ? <img className="ellipses" alt="ellipses" src="https://english.mathrubhumi.com/polopoly_fs/1.3376958.1544262349!/menu/standard/file/loading.gif"/> : ''}
+                    {messages.sort((a,b) => b.id - a.id).map((msgBody, index) => 
+                    <div key={index} className="msgBody">
                         <h3>{msgBody.user.username}</h3>
                         <p>{msgBody.message_body}</p>
                     </div>

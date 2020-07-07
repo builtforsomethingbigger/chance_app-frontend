@@ -31,7 +31,8 @@ export default class Eventform extends React.Component{
                 event_date: this.state.e_date,
                 event_title: this.state.e_title,
                 event_type: this.state.e_type,
-                event_description: this.state.e_description
+                event_description: this.state.e_description,
+                event_status: 'Pending Approval'
             })
         })
         .then(res => res.json())
@@ -53,11 +54,11 @@ export default class Eventform extends React.Component{
                     <table width="100%" border="0" cellSpacing="0" cellPadding="10" align="center">
                         <tbody>
                             <tr>
-                                <td width="40%" align="right">DATE:&nbsp;&nbsp;</td>
-                                <td width="60%" align="left"><input type="date" className="signup-input" name="e_date" value={this.state.e_date} onChange={this.handleOnChange}></input></td>
+                                <td width="30%" className="eventLabel" align="right">DATE:&nbsp;&nbsp;</td>
+                                <td width="70%" align="left"><input type="date" className="signup-input" name="e_date" value={this.state.e_date} onChange={this.handleOnChange}></input></td>
                             </tr>
                             <tr>
-                                <td align="right">TYPE:&nbsp;&nbsp;</td>
+                                <td className="eventLabel" align="right">TYPE:&nbsp;&nbsp;</td>
                                 <td align="left">
                                     <select className="select-input" name="e_type" value={this.state.e_type} onChange={this.handleOnChange}>
                                         <option default>select a type</option>
@@ -67,11 +68,11 @@ export default class Eventform extends React.Component{
                                 </td>
                             </tr>
                             <tr>
-                                <td align="right">TITLE:&nbsp;&nbsp;</td>
+                                <td className="eventLabel" align="right">TITLE:&nbsp;&nbsp;</td>
                                 <td align="left"><input className="signup-input" type="text" name="e_title" value={this.state.e_title} onChange={this.handleOnChange}></input></td>
                             </tr>
                             <tr>
-                                <td align="right" valign="top">DESCRIPTION:&nbsp;&nbsp;</td>
+                                <td className="eventLabel" align="right" valign="top">DESCRIPTION:&nbsp;&nbsp;</td>
                                 <td align="left"><textarea className="textArea"  type="text" name="e_description" value={this.state.e_description} onChange={this.handleOnChange}></textarea></td>
                             </tr>
                         </tbody>

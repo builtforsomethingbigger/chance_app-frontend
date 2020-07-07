@@ -74,6 +74,9 @@
         rgba(10, 101, 22, 0.93) 100%
     ); 
 }
+.eventResponseForm{
+    
+}
 
 @media only screen and (max-width: 780px){
     .eventLabel{

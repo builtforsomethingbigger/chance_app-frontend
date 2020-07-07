@@ -4,11 +4,12 @@ import '../styles/CharityEvents.css';
 export default class CharityEvents extends React.Component{
 
     state = {
-        display: false
+        display: false,
+        responseForm: false
     }
 
     showDescription = e => {
-        if(this.state.display){
+        if(this.state.display && !this.state.responseForm){
             this.setState({
                 display: false
             })
@@ -16,19 +17,36 @@ export default class CharityEvents extends React.Component{
             this.setState({
                 display: true
             })
+        }if(this.state.display && this.state.responseForm){
+            this.setState({
+                display: false,
+                responseForm: false
+            })
         }
+
+    }
+
+    showResponseForm = e => {
+        if(this.state.responseForm){
+            this.setState({
+                responseForm: false
+            })
+        }else{
+            this.setState({
+                responseForm: true
+            })
+        }   
     }
 
     render(){
-        const status = ["Pending Approval", "Client Approved"]
         return(
             <div id="moreInfoTable">
                 <table onClick={this.showDescription} width="100%" border="0" cellSpacing="0" cellPadding="10" align="center">
                     <tbody>
                         <tr>
-                            <td className="eventLabel" width="30%" align="left"><b>DATE:</b>&nbsp;{this.props.event_date}</td>
-                            <td className="eventLabel" width="30%" align="left"><b>TYPE:</b>&nbsp;{this.props.event_type}</td>
-                            <td className="eventLabel" width="40%" align="left"><b>STATUS:</b>&nbsp;{status[Math.floor(Math.random()*status.length)]}</td>
+                            <td className="eventLabel" width="28%" align="left"><b>DATE:</b>&nbsp;{this.props.event_date}</td>
+                            <td className="eventLabel" width="32%" align="left"><b>TYPE:</b>&nbsp;{this.props.event_type}</td>
+                            <td className="eventLabel" width="40%" align="left"><b>STATUS:</b>&nbsp;{this.props.event_status}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -51,9 +69,9 @@ export default class CharityEvents extends React.Component{
                             </tr>
                         </tbody>
                     </table>
-                    <div className="respondBtn">RESPOND TO THIS</div>
+                    <div className="respondBtn" onClick={this.showResponseForm}>RESPOND TO THIS</div>
                 </div>
-                <div className="eventResponseForm">
+                <div className="eventResponseForm" style={{display: this.state.responseForm ? "block" : "none"}}>
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
                         <tbody>
                             <tr>

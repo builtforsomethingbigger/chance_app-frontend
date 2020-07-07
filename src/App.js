@@ -168,11 +168,12 @@ export default class App extends React.Component{
             />
             <Route path='/charities/:id' name='charity' render={(routerProps) => {
               const charityID = parseInt(routerProps.match.params.id)
+              // console.log()
               return <CharityCard {...routerProps} 
                 display={this.state.charityCard} 
                 charID={charityID} 
                 currentUser={this.state.currentUser} 
-                charity={this.state.selectedCharity} 
+                charity={this.state.charities.find(charity => charity.id === charityID)} 
                 allUsers={this.state.users}
                 charities={this.state.charities}
                 favorites={this.state.favorites} 
