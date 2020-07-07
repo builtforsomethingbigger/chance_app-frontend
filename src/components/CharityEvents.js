@@ -1,11 +1,13 @@
 import React from 'react'
 import '../styles/CharityEvents.css';
 
+const messageAPI = 'http://localhost:3000/messages'
 export default class CharityEvents extends React.Component{
 
     state = {
         display: false,
-        responseForm: false
+        responseForm: false,
+        responseMsg: ''
     }
 
     showDescription = e => {
@@ -36,6 +38,44 @@ export default class CharityEvents extends React.Component{
                 responseForm: true
             })
         }   
+    }
+
+    handleOnChange = e => {
+        this.setState({
+            responseMsg: e.target.value
+        })
+    }
+
+    submitResponse = e => {
+        e.preventDefault()
+        const inboxUser = this.props.inboxes.find(inbox => inbox.user_id === this.props.currentUser.id)
+        fetch(messageAPI, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                accept: 'application/json'
+            },
+            body: JSON.stringify({
+                user_id: this.props.currentUser.id,
+                inbox_id: inboxUser.id,
+                message_title: `${this.props.event_date}: ${this.props.event_title}`,
+                message_body: this.state.responseMsg,
+                user: this.props.currentUser
+            })
+        })
+        .then(res => res.json())
+        .then(message => this.props.submitResponse(message))
+        .then(this.sentMsgConfirm())
+        this.setState({
+            message_body: ''
+        })
+        return this.showResponseForm()
+    }
+
+    sentMsgConfirm = () => {
+        return (
+            <div id="msgConfirm">Thank you for your response!<br/>Your message has been sent.</div>
+        )
     }
 
     render(){
@@ -78,11 +118,11 @@ export default class CharityEvents extends React.Component{
                                 <td className="eventLabel" align="center"><b>MESSAGE</b></td>
                             </tr>
                             <tr>
-                                <td align="center" valign="top"><textarea className="responseInput" type="text" name="message" value={this.state.message} onChange={this.onChangeHandler}></textarea></td>
+                                <td align="center" valign="top"><textarea className="responseInput" type="text" name="responseMsg" value={this.state.responseMsg} onChange={this.handleOnChange}></textarea></td>
                             </tr>
                         </tbody>
                     </table>
-                    <button type="submit" className="respondBtn">SEND</button>
+                    <button type="submit" className="respondBtn" onClick={this.submitResponse}>SEND</button>
                 </div>
             </div>
 

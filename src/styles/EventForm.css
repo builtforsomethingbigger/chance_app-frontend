@@ -23,12 +23,25 @@
     transition-timing-function: ease-in-out;
     transition: 0.2s;
 }
+
+    @keyframes dropdownEventForm {
+    0% {
+        opacity:0; 
+        height: 1px; 
+        background-color: rgba(255, 255, 255, 0);}
+    10%  {
+        opacity:.6; 
+        height: 480px; 
+        background-color: #ffffff;}
+    }
+
 .textArea{
-    width: 88%;
-    max-width: 367px;
-    height: 200px;
-    min-height: 200px;
-    max-height: 200px;
+    width: 82%;
+    max-width: 350px;
+    height: 180px;
+    min-height: 180px;
+    max-height: 180px;
+    padding:10px;
     font-size: 16px;
     border:none;
     border-radius: 10px;
@@ -75,15 +88,4 @@
         rgba(10, 101, 22, 0.93) 100%
     ); 
 }
-
-    @keyframes dropdownEventForm {
-    0% {
-        opacity:0; 
-        height: 1px; 
-        background-color: rgba(255, 255, 255, 0);}
-    10%  {
-        opacity:.6; 
-        height: 480px; 
-        background-color: #ffffff;}
-    }
 

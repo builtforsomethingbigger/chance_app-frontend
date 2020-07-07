@@ -17,14 +17,13 @@ export default class Inbox extends React.Component{
         const sender = this.props.messages.map(messages => messages.message_title)
         const unique = sender.filter((v, i, a) => a.indexOf(v) === i)
         if(!this.props.messages || !this.props.userInbox) return ''
-        // const messages = this.props.messages.filter(message => message.inbox_id === this.props.userInbox.id)
         return(
             <div id="inbox">
                 <div className="xClose xInbox" onClick={() => { this.goBack()}}>x</div>
                 <h1>MY MESSAGES</h1>
                 <div id="inboxContainer">
                     <div className="inboxPanel">
-                        {unique.map((title, index) => 
+                        {unique.reverse().map((title, index) => 
                             <Messages key={index} id={index} 
                                 title={title} 
                                 currentUser={this.props.currentUser}

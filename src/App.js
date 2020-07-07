@@ -181,6 +181,8 @@ export default class App extends React.Component{
                 newDonation={this.newDonation} 
                 onClick={this.hideCharityCard} 
                 postEvent={this.postEvent}
+                inboxes={this.state.inboxes}
+                submitResponse={this.handlePostMsgClick}
               />}} 
             />
             <Route path='/charities'  render={(routerProps) =>  

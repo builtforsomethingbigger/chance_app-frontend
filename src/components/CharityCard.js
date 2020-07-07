@@ -133,7 +133,8 @@ export default class CharityCard extends React.Component{
     }
 
     charityEvents = () => {
-        const events = this.state.events.filter(events => events.charity_id === this.props.charity.id)
+        const events = this.state.events.sort((a,b) => ('' + a.event_date).localeCompare(b.event_date)).filter(events => events.charity_id === this.props.charity.id)
+        console.log(events)
         return events
     }
 
@@ -249,6 +250,10 @@ export default class CharityCard extends React.Component{
                             this.charityEvents().map(event => 
                                 <CharityEvents key={event.id} {...event} 
                                     eventsTable={this.state.moreInfo} 
+                                    currentUser={this.props.currentUser} 
+                                    chairtyContact={this.charityContact()}
+                                    inboxes={this.props.inboxes}
+                                    submitResponse={this.props.submitResponse}
                                 />    
                             ) : 
                             <p>
