@@ -1,6 +1,7 @@
 import React from 'react'
 import DonationBar from './DonationBar'
 import FavoritedCharityCard from './FavoritedCharityCard'
+import CloseBtn from './CloseBtn'
 import '../styles/CharitiesPage.css';
 import '../styles/Donations.css';
 
@@ -50,7 +51,7 @@ export default class CharitiesPage extends React.Component{
     render(){
         return(
             <div id="charitiesPage">
-                <div className="xClose xCharitiesPage" onClick={this.goBack}>x</div>
+                <CloseBtn clickHandler={() => {this.goBack()}}/>
                 <h1>MY CHARITIES</h1>
                 <div id="myCharitiesContainer">
                     {this.userFavorites().map(favorites => 

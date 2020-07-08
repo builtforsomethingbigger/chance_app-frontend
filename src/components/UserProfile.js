@@ -1,5 +1,5 @@
 import React from 'react'
-// import DonationBar from './DonationBar'
+import CloseBtn from './CloseBtn'
 import '../styles/UserProfile.css';
 
 export default class UserProfile extends React.Component{
@@ -9,21 +9,6 @@ export default class UserProfile extends React.Component{
     }
      
     state = {
-        // bgColors: [
-        //     '#8AC926', 
-        //     '#0caca4', 
-        //     '#F49F0A', 
-        //     '#d36197', 
-        //     '#01FDF6',
-        //     '#909CC2', 
-        //     '#E9DF00', 
-        //     '#E13700', 
-        //     '#b161d3', 
-        //     '#337CA0', 
-        //     '#F58A07',
-        //     '#04aa3b', 
-        //     '#03FCBA'
-        // ],
         display: true
     }
         
@@ -45,18 +30,11 @@ export default class UserProfile extends React.Component{
         return sum
     }
     
-    // calcBarContainer = () => {
-    //     const donations = this.allDonations()
-    //     const amounts = donations.map(donation => donation.donation_amount)
-    //     const maxDonation = Math.max.apply(null, amounts)
-    //     return maxDonation
-    // }
-
     render(){
 
         return(
             <div id="userProfile">
-                <div className="xClose xUserProfile" onClick={this.goBack}>x</div>
+                <CloseBtn clickHandler={() => {this.goBack()}}/>
                 <div className="padTop20"><h1 className="usernameHeadline">{this.props.currentUser.username?.toUpperCase()}</h1></div>
                 <div className="profileInfoRow_half">
                     <h3>FULL NAME</h3>
@@ -80,16 +58,6 @@ export default class UserProfile extends React.Component{
                     <p>{this.props.currentUser.street_address_2}</p>
                     <p>{this.props.currentUser.city}, {this.props.currentUser.zip}</p>
                 </div>
-                {/* <div id="userDonationBar">
-                        {this.allDonations().sort((a,b) => new Date(b.donation_date) - new Date(a.donation_date)).map((donation, index) => 
-                            <DonationBar key={donation.id} {...donation} charities={this.props.charities} color={this.state.bgColors[index]} graphWidth={this.calcBarContainer()}/>
-                        )}
-                </div>
-                <div className="profileInfoRow_full pad20">
-                    <p className="donation_amount">TOTAL DONATIONS</p>
-                    <h2 className="up_12">${this.totalDonations(this.props.currentUser.id)}</h2>
-                </div> */}
-
             </div>
         )
     }

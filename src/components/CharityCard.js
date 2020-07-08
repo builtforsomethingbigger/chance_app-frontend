@@ -2,6 +2,7 @@ import React from 'react'
 import CharityEvents from './CharityEvents'
 import EventForm from './EventForm'
 import DonationForm from './DonationForm'
+import CloseBtn from './CloseBtn'
 import HeartEmpty from '../images/heart_empty.gif'
 import HeartFull from '../images/heart_full.gif'
 import '../styles/CharityCard.css';
@@ -9,6 +10,7 @@ import '../styles/CharityEvents.css';
 
 const eventsAPI = 'http://localhost:3000/events'
 const favoritesAPI = 'http://localhost:3000/favorites'
+
 
 export default class CharityCard extends React.Component{
     constructor(props){
@@ -150,17 +152,6 @@ export default class CharityCard extends React.Component{
         }
     }
 
-    // sentMsgConfirm = () => {
-    //     if(this.state.msgConfirm){
-    //         this.setState({
-    //             msgConfirm: false
-    //         })
-    //     }else{
-    //         this.setState({
-    //             msgConfirm: true
-    //         })
-    //     }
-    // }
 
     
     render(){
@@ -169,7 +160,7 @@ export default class CharityCard extends React.Component{
 
         if(!this.props.currentUser) return(
             <div id="charityCard" className="chairtyInfoFont">
-                <div className="xClose xCharityCard" onClick={() => { this.goBack(); this.props.onClick();}}>x</div>
+                <CloseBtn clickHandler={() => { this.goBack(); this.props.onClick();}}/>
                 <div className="charityInfoTable">
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
                         <tbody>
@@ -252,7 +243,7 @@ export default class CharityCard extends React.Component{
 
         return(
             <div id="charityCard" className="chairtyInfoFont">
-                <div className="xClose xCharityCard" onClick={() => { this.goBack(); this.props.onClick();}}>x</div>
+                <CloseBtn clickHandler={() => { this.goBack(); this.props.onClick();}}/>
                 <div><img className={`followHeart ${this.hearted() ? `followHearbeat` : ''}`} src={this.hearted() ? HeartFull : HeartEmpty} alt="Love This Charity!" onClick={this.favoriteCharity}/></div>
                 <div className="charityInfoTable">
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">

@@ -8,7 +8,8 @@ export default class CharityEvents extends React.Component{
     state = {
         display: false,
         responseForm: false,
-        responseMsg: ''
+        responseMsg: '',
+        sent: false
     }
 
     showDescription = e => {
@@ -47,6 +48,18 @@ export default class CharityEvents extends React.Component{
         })
     }
 
+    sendResponse = e => {
+        if(this.state.sent){
+            this.setState({
+                sent: false
+            })
+        }else{
+            this.setState({
+                sent: true
+            })
+        }
+    }
+
     submitResponse = e => {
         e.preventDefault()
         const inboxUser = this.props.inboxes.find(inbox => inbox.user_id === this.props.currentUser.id)
@@ -66,16 +79,12 @@ export default class CharityEvents extends React.Component{
         })
         .then(res => res.json())
         .then(message => this.props.submitResponse(message))
-        // .then(this.sentMsgConfirm())
+        .then(this.sendResponse())
+        .then(this.showResponseForm())
         this.setState({
             message_body: ''
         })
-        return this.showResponseForm()
     }
-
-    // sentMsgConfirm = e => {
-    //     this.props.sentMsgConfirm()
-    // }
 
     render(){
         return(
@@ -108,7 +117,7 @@ export default class CharityEvents extends React.Component{
                             </tr>
                         </tbody>
                     </table>
-                    <div className="respondBtn" onClick={this.showResponseForm}>RESPOND TO THIS</div>
+                    <div className={this.state.sent ? "respondedBtn" : "respondBtn"} onClick={this.showResponseForm}>{this.state.sent ? "RESPONDED" : "RESPOND TO POST"}</div>
                 </div>
                 <div className="eventResponseForm" style={{display: this.state.responseForm ? "block" : "none"}}>
                     <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">

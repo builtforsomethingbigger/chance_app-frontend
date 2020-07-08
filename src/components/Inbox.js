@@ -1,5 +1,6 @@
 import React from 'react'
 import Messages from './Messages'
+import CloseBtn from './CloseBtn'
 import '../styles/Inbox.css'
 
 export default class Inbox extends React.Component{
@@ -19,7 +20,7 @@ export default class Inbox extends React.Component{
         if(!this.props.messages || !this.props.userInbox) return ''
         return(
             <div id="inbox">
-                <div className="xClose xInbox" onClick={() => { this.goBack()}}>x</div>
+                <CloseBtn clickHandler={() => {this.goBack()}}/>
                 <h1>MY MESSAGES</h1>
                 <div id="inboxContainer">
                     <div className="inboxPanel">
