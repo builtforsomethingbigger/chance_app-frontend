@@ -43,9 +43,10 @@ body{
   width: 80%;
   min-width: 580px;
   max-width: 950px;
-  height: 100vh;
+  height: 96vh;
   min-height: 1150px;
   max-height: 1180px;
+  margin-top: 40px;
   padding-bottom: 30px;
   overflow: hidden;
   border-radius: 25px;

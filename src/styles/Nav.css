@@ -42,10 +42,11 @@
     position: absolute;
     display: inline-block;
     width: 280px;
-    height: 275px;
+    height: fit-content;
     top: -20px;
     left: -205px;
     padding-top: 10px;
+    padding-bottom: 10px;
     background: linear-gradient(
         to bottom right, 
         rgb(255, 255, 255) 2%,
@@ -113,7 +114,8 @@
         background-color: rgba(255, 255, 255, 0);}
     18%  {
         opacity:.8; 
-        height: 290px; 
+        height: fit-content;
+        padding-bottom: 25px; 
         background-color: #ffffff;}
     }
 

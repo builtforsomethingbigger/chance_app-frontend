@@ -21,7 +21,8 @@ export default class CharityCard extends React.Component{
         favCharity: {},
         moreInfo: false,
         eventForm: false,
-        donationForm: false
+        donationForm: false,
+        msgConfirm: true
     }
 
     componentDidMount(){
@@ -134,7 +135,6 @@ export default class CharityCard extends React.Component{
 
     charityEvents = () => {
         const events = this.state.events.sort((a,b) => ('' + a.event_date).localeCompare(b.event_date)).filter(events => events.charity_id === this.props.charity.id)
-        console.log(events)
         return events
     }
 
@@ -149,10 +149,107 @@ export default class CharityCard extends React.Component{
             })
         }
     }
+
+    // sentMsgConfirm = () => {
+    //     if(this.state.msgConfirm){
+    //         this.setState({
+    //             msgConfirm: false
+    //         })
+    //     }else{
+    //         this.setState({
+    //             msgConfirm: true
+    //         })
+    //     }
+    // }
+
     
     render(){
         if(!this.props.charity) return ''
         const mission = this.props.charity.mission.replace(/<br>/g, ' ')
+
+        if(!this.props.currentUser) return(
+            <div id="charityCard" className="chairtyInfoFont">
+                <div className="xClose xCharityCard" onClick={() => { this.goBack(); this.props.onClick();}}>x</div>
+                <div className="charityInfoTable">
+                    <table width="100%" border="0" cellSpacing="0" cellPadding="0" align="center">
+                        <tbody>
+                            {/* CHARITY NAME */}
+                            <tr>
+                                <td>
+                                    <h1 style={{marginTop: -20, paddingBottom: 20}}>{this.props.charity.charity_name.toUpperCase()}</h1>
+                                </td>
+                            </tr>
+                            {/* TAG LINE */}
+                            <tr>
+                                <td><b className="orgLabel">TAG LINE</b></td>
+                            </tr>
+                            <tr>
+                                <td style={{paddingBottom: 30}}>{this.props.charity.tag_line}</td>
+                            </tr>
+                            {/* MISSION STATEMENT */}
+                            <tr>
+                                <td><b className="orgLabel">MISSION STATEMENT</b></td>
+                            </tr>
+                            <tr>
+                                <td style={{paddingBottom: 30}}>{mission}</td>
+                            </tr>
+                            {/* CAUSE TYPE */}
+                            <tr>
+                                <td><b className="orgLabel">CAUSE TYPE</b></td>
+                            </tr>
+                            <tr>
+                                <td style={{paddingBottom: 30}}>{this.props.charity.cause}</td>
+                            </tr>
+                            {/* WEBSITE URL */}
+                            <tr>
+                                <td><b className="orgLabel">ORGANIZATION'S WEBSITE</b></td>
+                            </tr>
+                            <tr>
+                                <td style={{paddingBottom: 30}}><a target="_blank" rel="noopener noreferrer" href={this.props.charity.website_url}>{this.props.charity.website_url}</a></td>
+                            </tr>
+                            {/* OVERALL RATING */}
+                            <tr>
+                                <td style={{paddingBottom: 30}}><b className="orgLabel">OVERALL RATING:</b>&nbsp;&nbsp;{this.props.charity.current_rating}</td>
+                            </tr>
+                            {/* FINANCIAL RATING */}
+                            <tr>
+                                <td style={{paddingBottom: 30}}><b className="orgLabel">FINANCIAL RATING:</b>&nbsp;&nbsp;{this.props.charity.financial_rating}</td>
+                            </tr>
+                            {/* ACCOUNTABILITY RATING */}
+                            <tr>
+                                <td style={{paddingBottom: 30}}><b className="orgLabel">ACCOUNTABILITY RATING:</b>&nbsp;&nbsp;{this.props.charity.accountability_rating}</td>
+                            </tr>
+                            {/* INCOME */}
+                            <tr>
+                                <td style={{paddingBottom: 30}}><b className="orgLabel">INCOME:</b>&nbsp;&nbsp;${this.props.charity.income_amount}</td>
+                            </tr>
+                            {/* MAILING ADDRESS */}
+                            <tr>
+                                <td><b className="orgLabel">MAILING ADDRESS</b></td>
+                            </tr>
+                            <tr>
+                                <td style={{paddingBottom: 30}}>
+                                    <p style={{lineHeight: .4}}>{this.props.charity.mailing_street_address}</p>
+                                    {this.props.mailing_street_address_2 ? <p style={{lineHeight: .4}}>this.props.mailing_street_address</p> : ""}
+                                    <p style={{lineHeight: .4}}>{this.props.charity.mailing_city}, {this.props.charity.mailing_zipcode}</p>
+                                </td>
+                            </tr>
+                            {/* POINT OF CONTACT */}
+                            <tr>
+                                <td><b className="orgLabel">POINT OF CONTACT</b></td>
+                            </tr>
+                            <tr>
+                                <td>{this.charityContact().first_name}&nbsp;{this.charityContact().last_name}</td>
+                            </tr>
+                            <tr>
+                                <td className="dataProvidedBy"  style={{paddingTop: 150}}>Data provided by CharityNavigator API</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        )
+
         return(
             <div id="charityCard" className="chairtyInfoFont">
                 <div className="xClose xCharityCard" onClick={() => { this.goBack(); this.props.onClick();}}>x</div>
@@ -236,6 +333,9 @@ export default class CharityCard extends React.Component{
                     <div id="moreInfo" style={{paddingTop: 10}}></div>
                     <div style={{paddingTop: 30, paddingBottom: 420, display: this.state.moreInfo ? "block" : "none"}}>
                         <h1>OPPORTUNITIES &amp; EVENTS</h1>
+                        {/* <div id="msgConfirm" style={{animation: this.state.msgConfirm ? "showConfirm" : ""}}>
+                            Thank you for your response!<br/>Your message has been sent.
+                        </div>  */}
                         <div className="createBtnContainer">
                             <p className="createEventBtn" onClick={this.showEventForm}>CREATE AN EVENT</p>
                         </div>
@@ -254,13 +354,16 @@ export default class CharityCard extends React.Component{
                                     chairtyContact={this.charityContact()}
                                     inboxes={this.props.inboxes}
                                     submitResponse={this.props.submitResponse}
-                                />    
+                                    charID={this.props.charID}
+                                    // sentMsgConfirm={ this.sentMsgConfirm}
+                                />  
                             ) : 
                             <p>
                                 {this.props.charity.charity_name} has no&nbsp;upcoming&nbsp;events.<br/>
                                 Please check back later.
                             </p>
                         }
+                        
                     </div>
                 </div>
                 <div className="eventsDonateTable">

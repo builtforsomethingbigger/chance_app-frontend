@@ -34,10 +34,21 @@ export default class App extends React.Component{
     this.fetchAllMessages()
     this.fetchAllInboxes()
   }
-  currentUser = () => {
-    fetch(`${userAPI}/1`)
-    .then(res => res.json())
-    .then(currentUser => this.setState({ currentUser }))
+  // currentUser = () => {
+  //   fetch(`${userAPI}/5`)
+  //   .then(res => res.json())
+  //   .then(currentUser => this.setState({ currentUser }))
+  // }
+  currentUser = (user) => {
+    this.setState({
+      currentUser: user
+    })
+  }
+  clearUser = (e) => {
+    // window.location.reload(false)
+    this.setState({
+      currentUser: undefined
+    })
   }
   fetchAllUsers = () => {
     fetch(userAPI)
@@ -141,10 +152,12 @@ export default class App extends React.Component{
 
 
   render(){
-    const inbox = this.state.inboxes.find(inbox => inbox.user_id === this.state.currentUser.id)
     return (
       <div className="App">
-        <Nav currentUser={this.state.currentUser} />
+        <Nav 
+          currentUser={this.state.currentUser}
+          clearUser={this.clearUser}
+        />
         <div id="homepage_wrapper">
           <Switch>
             <Route path='/search'  render={(routerProps) =>  
@@ -194,8 +207,9 @@ export default class App extends React.Component{
                 charityCard={this.showCharityCard}
               />} 
             />
-            <Route path='/inbox' render={(routerProps) => 
-              <Inbox {...routerProps} 
+            <Route path='/inbox' render={(routerProps) => {
+              const inbox = this.state.inboxes.find(inbox => inbox.user_id === this.state.currentUser.id)
+              return <Inbox {...routerProps} 
                 currentUser={this.state.currentUser} 
                 allUsers={this.state.users}
                 inbox={this.showInbox} 
@@ -203,12 +217,14 @@ export default class App extends React.Component{
                 userInbox={inbox}
                 messages={this.state.messages}
                 postMsg={this.handlePostMsgClick}
-              />} 
+              />}} 
             />
             <Route path='/' render={() => 
               <LoginPage 
                 loginPage={this.showLoginPage} 
+                allUsers={this.state.users}
                 display={this.state.loginPage}
+                currentUser={this.currentUser}
               />} 
             />
           </Switch>
@@ -217,17 +233,3 @@ export default class App extends React.Component{
     );
   }
 }
-// display={this.state.charityCard} 
-// charity={this.state.selectedCharity} 
-// donationForm={this.state.donationForm} 
-// favortied={this.state.hearted} 
-
-// currentUser={this.state.currentUser} 
-// allUsers={this.state.allUsers}
-// charities={this.state.charities}
-// favorites={this.state.favorites} 
-// newDonation={this.state.newDonation} 
-// favClick={this.state.favClick}
-
-// onClick={this.hideCharityCard} 
-// donate={this.showDonationForm} 

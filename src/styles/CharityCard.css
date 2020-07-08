@@ -46,7 +46,7 @@
     position: relative;
     display: inline-block;
     width: 82%;
-    height: 650px;
+    height: 690px;
     padding: 9%;
     overflow: scroll;
     top: 0;
@@ -299,6 +299,42 @@ a{
         rgba(27, 114, 7, 0.683) 100%
     );   
 }
+#msgConfirm{
+    position: relative;
+    display: block;
+    float: left;
+    top: 0;
+    left: 0;
+    padding: 50px;
+    width: 85%;
+    height: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: black;
+    border-radius: 25px;
+    background-color: white;
+    opacity: 0;
+    z-index: 50;
+
+    animation: showConfirm;
+    animation-duration: 3s;
+    transition-timing-function: ease-in-out;
+}
+
+    @keyframes showConfirm {
+        0% {
+            opacity: 0;
+            height: 1px;
+        }
+        25%  {
+            opacity: 1;
+            height: fit-content;
+        }
+        75%  {
+            opacity: 1;
+            height: fit-content;
+        }
+    }
 
 @media only screen and (max-width: 780px){
     #charityCard{

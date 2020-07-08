@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../styles/CharityEvents.css';
 
 const messageAPI = 'http://localhost:3000/messages'
@@ -65,18 +66,16 @@ export default class CharityEvents extends React.Component{
         })
         .then(res => res.json())
         .then(message => this.props.submitResponse(message))
-        .then(this.sentMsgConfirm())
+        // .then(this.sentMsgConfirm())
         this.setState({
             message_body: ''
         })
         return this.showResponseForm()
     }
 
-    sentMsgConfirm = () => {
-        return (
-            <div id="msgConfirm">Thank you for your response!<br/>Your message has been sent.</div>
-        )
-    }
+    // sentMsgConfirm = e => {
+    //     this.props.sentMsgConfirm()
+    // }
 
     render(){
         return(
@@ -122,7 +121,9 @@ export default class CharityEvents extends React.Component{
                             </tr>
                         </tbody>
                     </table>
+                    <Link to={`/charities/${this.props.charID}#moreInfo`}>
                     <button type="submit" className="respondBtn" onClick={this.submitResponse}>SEND</button>
+                    </Link>
                 </div>
             </div>
 

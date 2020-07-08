@@ -38,12 +38,19 @@ export default class LoginPage extends React.Component{
                 <p className="login-signup-text">If you are a returning member, please log in below. <br/>
                     New to Chance? <span className="signup-link" onClick={this.showSignup}>Create a new account</span>!
                 </p>
-                <LoginCard loginPage={this.props.loginPage} />
+                <LoginCard 
+                    loginPage={this.props.loginPage} 
+                    allUsers={this.props.allUsers} 
+                    currentUser={this.props.currentUser}     
+                />
                 <p className="login-signup-text">Not interested in a membership? That's okay with us!<br/>The Chance app is <b>FREE</b> to use as a charitable organization directory.<br/>
                     <br/>
                     If you wish to continue as a guest, <Link to='/search' className="signup-link">click here</Link>.
                 </p>
-                <SignupForm display={this.state.signupForm} onClick={this.showSignup}/>
+                <SignupForm 
+                    display={this.state.signupForm} 
+                    onClick={this.showSignup}
+                />
             </div>
         )
     }
