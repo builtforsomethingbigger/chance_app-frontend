@@ -9,11 +9,11 @@ const MainMenu = (props) => {
 
     const [click] = useSound(
         clickSound,
-        { volume: 0.8 }
+        { volume: 1.1 }
     )
     const [scroll] = useSound(
         scrollSound,
-        { volume: 0.8 }
+        { volume: 1.5 }
     )
 
     const clearUser = () => {

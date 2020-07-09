@@ -64,6 +64,50 @@ h2,h3{
     -webkit-text-stroke-color: rgba(255, 255, 255, 0.347);  
 }
 
+.editUserBtn{
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 10px;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    padding: 10px 30px 10px 30px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0px 2px 2px black;
+    vertical-align: middle;
+    border-radius: 50px;
+    border: 1px solid rgb(82, 168, 82);
+    border-radius: 8px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(162, 236, 236, 0.747) 2%,
+        rgba(151, 226, 226, 0.747) 28%,
+        rgba(9, 160, 37, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.342);
+    font-size: 16px;
+    cursor: pointer;
+}
+.editUserBtn:hover{
+    box-shadow: none;
+    transform: scale(.99);
+    cursor: pointer;
+}
+.editUserBtn:active{
+    text-shadow: none;
+    transform: scale(.98);
+    background: linear-gradient(
+        to bottom, 
+        rgba(138, 201, 201, 0.747) 2%,
+        rgba(132, 197, 197, 0.747) 28%,
+        rgba(7, 129, 30, 0.765) 62%,
+        rgba(10, 101, 22, 0.93) 100%
+    ); 
+}
 
 @media only screen and (max-width: 780px){
     #userProfile{
@@ -76,5 +120,9 @@ h2,h3{
         width: 100%;
         font-size: 21px;
         line-height: 22px;
+    }
+    .editUserBtn{
+        padding: 10px 50px 10px 50px;
+        margin-bottom: 70px;
     }
 }

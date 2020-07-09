@@ -158,11 +158,11 @@ h1{
 .xClose:active{
   background: linear-gradient(
     to bottom right, 
-    rgb(120, 206, 206) 2%,
-    rgb(85, 197, 193) 28%,
-    rgb(21, 112, 33) 62%,
-    rgb(5, 151, 31) 100%
-); 
+    rgb(135, 221, 221) 2%,
+    rgb(105, 207, 203) 28%,
+    rgb(26, 122, 39) 62%,
+    rgb(14, 188, 46) 100%
+  ); 
 }
 
 

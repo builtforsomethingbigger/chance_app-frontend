@@ -8,7 +8,7 @@ const SearchCard = (props) => {
 
     const [play] = useSound(
         clickSound,
-        { volume: 0.5 }
+        { volume: 0.8 }
       )
 
       return(

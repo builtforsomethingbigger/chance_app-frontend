@@ -58,6 +58,16 @@ export default class UserProfile extends React.Component{
                     <p>{this.props.currentUser.street_address_2}</p>
                     <p>{this.props.currentUser.city}, {this.props.currentUser.zip}</p>
                 </div>
+                <div className="profileInfoRow_full">
+                    <h3>CREDIT CARD INFORMATION</h3>
+                    <p>{this.props.currentUser.cc_type}</p>
+                    <p>{this.props.currentUser.cc_number}</p>
+                    <p>{this.props.currentUser.cc_exp_date}</p>
+                </div>
+
+                <div className="profileInfoRow_full">
+                    <p className="editUserBtn">EDIT INFO</p>
+                </div>
             </div>
         )
     }
