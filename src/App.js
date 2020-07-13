@@ -179,7 +179,7 @@ export default class App extends React.Component{
                 donations={this.state.donations} 
               />}
             />
-            <Route path='/charities/:id' name='charity' render={(routerProps) => {
+            {/* <Route path='/charities/:id' name='charity' render={(routerProps) => {
               const charityID = parseInt(routerProps.match.params.id)
               // console.log()
               return <CharityCard {...routerProps} 
@@ -218,7 +218,7 @@ export default class App extends React.Component{
                 messages={this.state.messages}
                 postMsg={this.handlePostMsgClick}
               />}} 
-            />
+            /> */}
             <Route path='/' render={() => 
               <LoginPage 
                 loginPage={this.showLoginPage} 

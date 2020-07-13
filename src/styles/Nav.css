@@ -165,9 +165,11 @@
     #ChanceLogo{
         width: 250px;
         height: 80px;
+        top: 15px;
     }
     .menuBtn{
         font-family: arial;
         font-size: 20px;
+        top: 10px;
     }
 }

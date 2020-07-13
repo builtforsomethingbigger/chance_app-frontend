@@ -35,4 +35,9 @@
    
 
 @media only screen and (max-width: 768px){
+    #containerFrame{
+        width: 90%;
+        height: 90%;
+        max-height: 400px;
+    }
 }
