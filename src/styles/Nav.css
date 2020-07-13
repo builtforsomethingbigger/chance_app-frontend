@@ -161,6 +161,13 @@
 
   
 
-@media only screen and (max-width: 780px){
-
+@media only screen and (max-width: 768px){
+    #ChanceLogo{
+        width: 250px;
+        height: 80px;
+    }
+    .menuBtn{
+        font-family: arial;
+        font-size: 20px;
+    }
 }

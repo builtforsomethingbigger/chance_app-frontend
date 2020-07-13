@@ -170,6 +170,9 @@
     .login-signup-text, p{
         font-size: 20px;
     }
+    #loginCard{
+        width: 85%;
+    }
 }
 
 

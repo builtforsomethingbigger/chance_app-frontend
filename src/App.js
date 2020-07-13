@@ -3,12 +3,12 @@ import { LoginPage, HomePage, Nav, UserProfile, CharitiesPage, CharityCard, Inbo
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 
-const charityAPI = 'http://localhost:3000/charities'
-const userAPI = 'http://localhost:3000/users'
-const donationAPI = 'http://localhost:3000/donations'
-const favoritesAPI = 'http://localhost:3000/favorites'
-const messageAPI = 'http://localhost:3000/messages'
-const inboxAPI = 'http://localhost:3000/inboxes'
+const charityAPI = 'https://chance-to-make-change.herokuapp.com/charities'
+const userAPI = 'https://chance-to-make-change.herokuapp.com/users'
+const donationAPI = 'https://chance-to-make-change.herokuapp.com/donations'
+const favoritesAPI = 'https://chance-to-make-change.herokuapp.com/favorites'
+const messageAPI = 'https://chance-to-make-change.herokuapp.com/messages'
+const inboxAPI = 'https://chance-to-make-change.herokuapp.com/inboxes'
 
 export default class App extends React.Component{
 
